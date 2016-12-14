@@ -4,13 +4,47 @@ crawl the web for remote work
 
 # potential sources
 
+# NEW
+
+https://weworkremotely.com/jobs/search?term=javascript
+http://taipei.craigslist.com.tw/search/ggg
+http://taipei.craigslist.com.tw/search/jjj
+https://www.freelancer.com/projects/Website-Design-Software-Architecture/Outsource-freelance-website/
+https://www.dice.com/jobs/q-remote_javascript-dtco-true-jobs.html?searchid=1521348262724
+https://www.flexjobs.com/international/United-Kingdom-telecommuting-jobs
+http://www.indeed.co.uk/javascript-remote-jobs
+https://www.peopleperhour.com/
+http://jobs.trovit.co.uk/uk-remote-programmer-jobs
+http://stackoverflow.com/jobs?r=True
+https://remoteok.io/
+https://www.linkedin.com/jobs/remote-developer-jobs?country=gb
+https://www.cwjobs.co.uk/jobs/remote/in-london
+https://www.peopleperhour.com/freelance-programming-jobs?locationFilter=remote
+http://www.careerjet.co.uk/remote-programmer-jobs.html
+**https://github.com/jessicard/remote-jobs**
+https://github.com/hugo53/awesome-RemoteWork
+
+
+* https://www.skillshare.com/
+* https://www.livecoding.tv/
+* https://www.codementor.io/mentor/apply?v=expert
+* https://www.codementor.io/gigs/web-development-services
+* https://jobs.github.com/
+
+
+---
+
+---
+
+---
+
 ## yes API
 ```
-* https://www.upwork.com/o/jobs/browse/?q=javascript# 
+* https://www.upwork.com/o/jobs/browse/?q=javascript#
   * https://www.upwork.com/?r
-  * https://developers.upwork.com/ 
-* http://www.indeed.com/q-Remote-javascript-jobs.html 
-  * http://www.indeed.com/publisher 
+  * https://developers.upwork.com/
+* http://www.indeed.com/q-Remote-javascript-jobs.html
+  * http://www.indeed.com/publisher
 * http://jobs.ethercasts.com/
  * http://jobs.ethercasts.com/api/jobs
 * https://remotebase.io/companies
