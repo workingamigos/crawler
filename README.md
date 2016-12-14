@@ -4,6 +4,21 @@ crawl the web for remote work
 
 # potential sources
 
+
+# NEW NEW
+
+http://jobs.ethercasts.com/
+http://europeremotely.com/
+https://remoteok.io/remote-web-dev-jobs
+https://remotebase.io/companies
+https://www.bountysource.com/
+https://remote.co/qa-leading-remote-companies/operating-remotely/
+https://remote.co/remote-jobs/developer/
+http://frontenddeveloperjob.com/
+https://twitter.com/frontenddevjob
+https://workfrom.co/
+
+
 # NEW
 
 https://weworkremotely.com/jobs/search?term=javascript
