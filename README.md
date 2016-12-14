@@ -6,46 +6,39 @@ crawl the web for remote work
 
 # NEW NEW NEW
 
-https://remotejobs.com/
-https://github.com/lukasz-madon/awesome-remote-job
-http://www.indeed.com/l-Remote-jobs.html
-https://www.workingnomads.co/jobs
-https://jobspresso.co/browsejobs/#s=1
+* https://remotejobs.com/
+* https://github.com/lukasz-madon/awesome-remote-job
+* http://www.indeed.com/l-Remote-jobs.html
+* https://www.workingnomads.co/jobs
+* https://jobspresso.co/browsejobs/#s=1
 
+* http://jobs.ethercasts.com/
+* http://europeremotely.com/
+* https://remoteok.io/remote-web-dev-jobs
+* https://remotebase.io/companies
+* https://www.bountysource.com/
+* https://remote.co/qa-leading-remote-companies/operating-remotely/
+* https://remote.co/remote-jobs/developer/
+* http://frontenddeveloperjob.com/
+* https://twitter.com/frontenddevjob
+* https://workfrom.co/
 
-# NEW NEW
-
-http://jobs.ethercasts.com/
-http://europeremotely.com/
-https://remoteok.io/remote-web-dev-jobs
-https://remotebase.io/companies
-https://www.bountysource.com/
-https://remote.co/qa-leading-remote-companies/operating-remotely/
-https://remote.co/remote-jobs/developer/
-http://frontenddeveloperjob.com/
-https://twitter.com/frontenddevjob
-https://workfrom.co/
-
-
-# NEW
-
-https://weworkremotely.com/jobs/search?term=javascript
-http://taipei.craigslist.com.tw/search/ggg
-http://taipei.craigslist.com.tw/search/jjj
-https://www.freelancer.com/projects/Website-Design-Software-Architecture/Outsource-freelance-website/
-https://www.dice.com/jobs/q-remote_javascript-dtco-true-jobs.html?searchid=1521348262724
-https://www.flexjobs.com/international/United-Kingdom-telecommuting-jobs
-http://www.indeed.co.uk/javascript-remote-jobs
-https://www.peopleperhour.com/
-http://jobs.trovit.co.uk/uk-remote-programmer-jobs
-http://stackoverflow.com/jobs?r=True
-https://remoteok.io/
-https://www.linkedin.com/jobs/remote-developer-jobs?country=gb
-https://www.cwjobs.co.uk/jobs/remote/in-london
-https://www.peopleperhour.com/freelance-programming-jobs?locationFilter=remote
-http://www.careerjet.co.uk/remote-programmer-jobs.html
+* http://taipei.craigslist.com.tw/search/ggg
+* http://taipei.craigslist.com.tw/search/jjj
+* https://www.freelancer.com/projects/Website-Design-Software-Architecture/Outsource-freelance-website/
+* https://www.dice.com/jobs/q-remote_javascript-dtco-true-jobs.html?searchid=1521348262724
+* https://www.flexjobs.com/international/United-Kingdom-telecommuting-jobs
+* http://www.indeed.co.uk/javascript-remote-jobs
+* https://www.peopleperhour.com/
+* http://jobs.trovit.co.uk/uk-remote-programmer-jobs
+* http://stackoverflow.com/jobs?r=True
+* https://remoteok.io/
+* https://www.linkedin.com/jobs/remote-developer-jobs?country=gb
+* https://www.cwjobs.co.uk/jobs/remote/in-london
+* https://www.peopleperhour.com/freelance-programming-jobs?locationFilter=remote
+* http://www.careerjet.co.uk/remote-programmer-jobs.html
 **https://github.com/jessicard/remote-jobs**
-https://github.com/hugo53/awesome-RemoteWork
+* https://github.com/hugo53/awesome-RemoteWork
 
 
 * https://www.skillshare.com/
@@ -60,6 +53,8 @@ https://github.com/hugo53/awesome-RemoteWork
 ---
 
 ---
+## 100% remote freelance projects (and jobs)
+* https://weworkremotely.com/jobs/search?term=javascript
 
 ## yes API
 ```
