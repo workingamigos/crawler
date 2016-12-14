@@ -4,13 +4,42 @@ crawl the web for remote work
 
 # potential sources
 
-# NEW NEW NEW
+# NEW NEW
+https://remotejobs.com/
+https://github.com/lukasz-madon/awesome-remote-job
+http://www.indeed.com/l-Remote-jobs.html
+https://www.workingnomads.co/remote-javascript-jobs
+https://jobspresso.co/browsejobs/#s=1
+https://landing.jobs/offers/?page=1&s=featured&full_remote=true&s_l=0&s_h=100&t_co=false&t_st=false
+http://jobs.remotive.io/
+https://www.wfh.io/
+https://www.reddit.com/r/remotejs/
+http://www.skipthedrive.com/jobs/?search=web
+https://www.virtualvocations.com/jobs
+https://authenticjobs.com/#category=4&onlyremote=1
+https://dribbble.com/jobs?utf8=%E2%9C%93&anywhere=true&location=Anywhere
+https://angel.co/jobs#find/f!%7B%22remote%22%3Atrue%2C%22keywords%22%3A%5B%22JavaScript%22%5D%7D
+http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=javascript&profisuche=0&pq_sorttype=1&area=newpb&redirect=1
+https://www.themuse.com/jobs?keyword%5B%5D=javascript%20remote&filter=true
+http://jobs.ethercasts.com/
+http://europeremotely.com/
+https://remoteok.io/remote-web-dev-jobs
+https://remotebase.io/companies
+https://www.bountysource.com/
+https://remote.co/qa-leading-remote-companies/operating-remotely/
+https://remote.co/remote-jobs/developer/
+http://frontenddeveloperjob.com/
+https://twitter.com/frontenddevjob
+https://workfrom.co/
+http://www.idealist.org/search/v2/?qs=QlpoOTFBWSZTWan7ZN8AAFGfgAMAMAIBAAAAuvf_oCAAkCjQ0AAAAyJqek9I9SDDTU0vp5lKNmHfdKrkI9HK47Siob4_XcVJpzfgY2qTq-49UJYfVNpmOgliXgw4jXZwvUNsNERCqjPsJCjMRjQUaAsHUWJhpwHqkiuCFTwfJYWnlltDCX48WXWo3t_F3JFOFCQqftk3wA==
+http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location=
+https://www.monster.com/jobs/search/?q=javascript-remote
+https://twitter.com/remotejs?lang=en
+http://jsjobs.org/?q=remote&p=1
+https://www.cybercoders.com/jobs/remote-javascript-developer-jobs/
 
-* https://remotejobs.com/
-* https://github.com/lukasz-madon/awesome-remote-job
-* http://www.indeed.com/l-Remote-jobs.html
-* https://www.workingnomads.co/jobs
-* https://jobspresso.co/browsejobs/#s=1
+----
+
 
 * http://jobs.ethercasts.com/
 * http://europeremotely.com/
@@ -48,6 +77,7 @@ crawl the web for remote work
 * https://jobs.github.com/
 
 
+
 ---
 
 ---
@@ -55,6 +85,9 @@ crawl the web for remote work
 ---
 ## 100% remote freelance projects (and jobs)
 * https://weworkremotely.com/jobs/search?term=javascript
+
+
+------------------------------------------------------------------------------
 
 ## yes API
 ```
@@ -122,19 +155,10 @@ https://github.com/hugo53/awesome-RemoteWork
 
 ## other (not jobs)
 ```
-https://staff.com/
-https://zachholman.com/posts/remote-first/
-https://www.visualcv.com/
-http://careeradvertisingplatform.com/
-https://europass.cedefop.europa.eu/editors/en/cv/compose
-https://hired.com/how-it-works
+...
 ```
 
 ## error/not found
 ```
-http://www.remotejobs.it/
-http://offsite.careers/jobs
-https://remoteok.io/
-http://offsite.careers/jobs
-http://resume.linkedinlabs.com/
+...
 ```
