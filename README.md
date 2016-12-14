@@ -4,6 +4,14 @@ crawl the web for remote work
 
 # potential sources
 
+# NEW NEW NEW
+
+https://remotejobs.com/
+https://github.com/lukasz-madon/awesome-remote-job
+http://www.indeed.com/l-Remote-jobs.html
+https://www.workingnomads.co/jobs
+https://jobspresso.co/browsejobs/#s=1
+
 
 # NEW NEW
 
