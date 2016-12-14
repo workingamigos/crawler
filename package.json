@@ -1,0 +1,25 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "crawl the web for remote work",
+  "main": "source/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workingamigos/crawler.git"
+  },
+  "keywords": [
+    "crawl",
+    "scrape",
+    "remote",
+    "jobs"
+  ],
+  "author": "@serapath",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/workingamigos/crawler/issues"
+  },
+  "homepage": "https://github.com/workingamigos/crawler#readme"
+}
