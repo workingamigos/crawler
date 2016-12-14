@@ -3,11 +3,31 @@ crawl the web for remote work
 
 
 # potential sources
+
+## yes API
+```
+* https://www.upwork.com/o/jobs/browse/?q=javascript# 
+  * https://www.upwork.com/?r
+  * https://developers.upwork.com/ 
+* http://www.indeed.com/q-Remote-javascript-jobs.html 
+  * http://www.indeed.com/publisher 
+
+
+```
+
+ ## not found API
 ```
 http://www.guru.com/d/freelancers/q/javascript/
-https://www.upwork.com/o/jobs/browse/?q=javascript#
 https://www.dice.com/jobs?q=javascript&l=remote&searchid=595019450097
-http://www.indeed.com/q-Remote-javascript-jobs.html
+https://www.freelancer.com/
+https://remotejobs.com/
+
+
+```
+
+ ## not sorted
+```
+
 https://www.cybercoders.com/jobs/remote-web-developer-jobs/
 http://www.simplyhired.com/k-remote-web-developer-jobs.html
 https://twitter.com/search?q=%23remotejob%20%23javascript&src=typd
@@ -17,13 +37,8 @@ https://twitter.com/freelancer_INT
 https://twitter.com/GitHubJobs
 https://twitter.com/StackDevJobs
 https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fremotejobs.io%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=remote_jobs&tw_p=followbutton
-https://www.upwork.com/?r
-https://staff.com/
-https://www.freelancer.com/
-https://remotejobs.com/
 https://github.com/lukasz-madon/awesome-remote-job
 https://github.com/hugo53/awesome-RemoteWork
-http://www.remotejobs.it/
 https://landing.jobs/offers?page=1&s=featured&s_l=0&s_h=100
 http://jobs.remotive.io/
 http://offsite.careers/jobs
@@ -94,4 +109,15 @@ https://remoteok.io/remote-web-dev-jobs
 https://www.honeypot.io/
 https://remotebase.io/
 
+```
+
+## other (not jobs)
+```
+https://staff.com/
+
+```
+
+## error
+```
+http://www.remotejobs.it/
 ```
