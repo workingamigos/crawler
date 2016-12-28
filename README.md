@@ -46,16 +46,21 @@ https://remotebase.io/companies `jobs` `remote` `cool`
 
 https://www.bountysource.com/ `remote` `freelance` `cool`
 
-https://remote.co/remote-jobs/developer/
-http://frontenddeveloperjob.com/
-https://twitter.com/frontenddevjob
-https://workfrom.co/
-http://www.idealist.org/search/v2/?qs=QlpoOTFBWSZTWan7ZN8AAFGfgAMAMAIBAAAAuvf_oCAAkCjQ0AAAAyJqek9I9SDDTU0vp5lKNmHfdKrkI9HK47Siob4_XcVJpzfgY2qTq-49UJYfVNpmOgliXgw4jXZwvUNsNERCqjPsJCjMRjQUaAsHUWJhpwHqkiuCFTwfJYWnlltDCX48WXWo3t_F3JFOFCQqftk3wA==
-http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location=
-https://www.monster.com/jobs/search/?q=javascript-remote
-https://twitter.com/remotejs?lang=en
-http://jsjobs.org/?q=remote&p=1
-https://www.cybercoders.com/jobs/remote-javascript-developer-jobs/
+https://remote.co/remote-jobs/developer/ `remote` `jobs` 
+
+http://frontenddeveloperjob.com/ `remote` `freelance` `jobs` `cool`
+
+http://www.idealist.org/search/v2/?qs=QlpoOTFBWSZTWan7ZN8AAFGfgAMAMAIBAAAAuvf_oCAAkCjQ0AAAAyJqek9I9SDDTU0vp5lKNmHfdKrkI9HK47Siob4_XcVJpzfgY2qTq-49UJYfVNpmOgliXgw4jXZwvUNsNERCqjPsJCjMRjQUaAsHUWJhpwHqkiuCFTwfJYWnlltDCX48WXWo3t_F3JFOFCQqftk3wA== `remote` `freelance` `cool`
+
+http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `cool`
+
+https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript`
+
+https://twitter.com/remotejs?lang=en `dead links`
+
+http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `cool` `javascript`
+
+https://www.cybercoders.com/jobs/remote-javascript-developer-jobs/ `remote` `jobs`
 
 ----
 
@@ -174,7 +179,10 @@ https://github.com/hugo53/awesome-RemoteWork
 
 ## other (not jobs)
 ```
-https://remote.co/qa-leading-remote-companies/operating-remotely/
+https://remote.co/qa-leading-remote-companies/operating-remotely/ `article`
+
+https://workfrom.co/ `coworking`
+
 ...
 ```
 
