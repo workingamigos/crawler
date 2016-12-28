@@ -7,25 +7,45 @@ crawl the web for remote work
 
 # NEW NEW         
 https://github.com/lukasz-madon/awesome-remote-job `listing`
+
 http://www.indeed.com/l-Remote-jobs.html `jobs` `remote`
+
 https://www.workingnomads.co/remote-javascript-jobs `remote` `jobs` `javascript` `cool`
+
 https://jobspresso.co/browsejobs/#s=1 `remote` `jobs`
+
 https://landing.jobs/offers/?page=1&s=featured&full_remote=true&s_l=0&s_h=100&t_co=false&t_st=false `jobs` `remote`
+
 http://jobs.remotive.io/ `jobs` `remote`
+
 https://www.wfh.io/ `jobs` `remote` `cool`
+
 https://www.reddit.com/r/remotejs/ `remote` `javascript` `cool`
+
 https://whereverjobs.com/listing/1017/spectacular-javascript-desktop-engineer `remote` `jobs` `cool`
+
 http://www.skipthedrive.com/jobs/?search=web `remote` `jobs`
+
 https://www.virtualvocations.com/jobs/c-live+anywhere+in+u.s. `jobs` `remote`
+
 https://authenticjobs.com/#category=4&onlyremote=1 `remote` `cool`
+
 https://dribbble.com/jobs?utf8=%E2%9C%93&anywhere=true&location=Anywhere `jobs` `remote` 
+
 https://angel.co/jobs#find/f!%7B%22remote%22%3Atrue%2C%22keywords%22%3A%5B%22JavaScript%22%5D%7D `jobs`
+
 http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=javascript&profisuche=0&pq_sorttype=1&area=newpb&redirect=1 `remote` `freelance`
+
 https://www.themuse.com/jobs?keyword%5B%5D=javascript%20remote&filter=true `jobs` `remote`
+
 http://jobs.ethercasts.com/ `remote` `jobs` `cool`
+
 https://remoteok.io/remote-web-dev-jobs `remote` `freelance` `jobs` `cool`
+
 https://remotebase.io/companies `jobs` `remote` `cool`
+
 https://www.bountysource.com/ `remote` `freelance` `cool`
+
 https://remote.co/remote-jobs/developer/
 http://frontenddeveloperjob.com/
 https://twitter.com/frontenddevjob
