@@ -62,28 +62,12 @@ http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `cool` `javascript`
 
 https://www.cybercoders.com/jobs/remote-javascript-developer-jobs/ `remote` `jobs`
 
-----
+https://www.dice.com/ `jobs` `freelance` 
 
+https://www.peopleperhour.com/freelance-jobs?category=36&ref=categories `remote` `freelance` `cool` `javascript`
 
-* http://jobs.ethercasts.com/
-* http://europeremotely.com/
-* https://remoteok.io/remote-web-dev-jobs
-* https://remotebase.io/companies
-* https://www.bountysource.com/
-* https://remote.co/qa-leading-remote-companies/operating-remotely/
-* https://remote.co/remote-jobs/developer/
-* http://frontenddeveloperjob.com/
-* https://twitter.com/frontenddevjob
-* https://workfrom.co/
+http://jobs.trovit.co.uk/index.php/cod.search_jobs/type.0/what_d.remote/sug.0/isUserSearch.1/origin.1/order_by.relevance/distance.25/job_type.Freelance/
 
-* http://taipei.craigslist.com.tw/search/ggg
-* http://taipei.craigslist.com.tw/search/jjj
-* https://www.freelancer.com/projects/Website-Design-Software-Architecture/Outsource-freelance-website/
-* https://www.dice.com/jobs/q-remote_javascript-dtco-true-jobs.html?searchid=1521348262724
-* https://www.flexjobs.com/international/United-Kingdom-telecommuting-jobs
-* http://www.indeed.co.uk/javascript-remote-jobs
-* https://www.peopleperhour.com/
-* http://jobs.trovit.co.uk/uk-remote-programmer-jobs
 * http://stackoverflow.com/jobs?r=True
 * https://remoteok.io/
 * https://www.linkedin.com/jobs/remote-developer-jobs?country=gb
@@ -182,6 +166,9 @@ https://github.com/hugo53/awesome-RemoteWork
 https://remote.co/qa-leading-remote-companies/operating-remotely/ `article`
 
 https://workfrom.co/ `coworking`
+
+https://www.flexjobs.com/international/United-Kingdom-telecommuting-jobs `not for developers`
+
 
 ...
 ```
