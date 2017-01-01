@@ -56,8 +56,6 @@ http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&l
 
 https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript`
 
-https://twitter.com/remotejs?lang=en `dead links`
-
 http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `cool` `javascript`
 
 https://www.cybercoders.com/jobs/remote-javascript-developer-jobs/ `remote` `jobs`
@@ -131,7 +129,6 @@ https://github.com/hugo53/awesome-RemoteWork
 ```
 
 ## other (not jobs)
-```
 https://remote.co/qa-leading-remote-companies/operating-remotely/ `article`
 
 https://workfrom.co/ `coworking`
@@ -154,8 +151,7 @@ https://www.honeypot.io/  `direct offers`
 
 https://www.awesomeweb.com/ `direct notifications`
 
-...
-```
+https://twitter.com/remotejs?lang=en `dead links`
 
 ## error/not found
 ```
