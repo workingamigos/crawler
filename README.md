@@ -5,10 +5,10 @@ crawl the web for remote work
 # potential sources
 
 
-# NEW NEW         
+# SORTED         
 https://github.com/lukasz-madon/awesome-remote-job `listing`
 
-http://www.indeed.com/l-Remote-jobs.html `jobs` `remote`
+http://www.indeed.com/l-Remote-jobs.html `jobs` `remote` `api`
 
 https://www.workingnomads.co/remote-javascript-jobs `remote` `jobs` `javascript` `cool`
 
@@ -38,7 +38,7 @@ http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=jav
 
 https://www.themuse.com/jobs?keyword%5B%5D=javascript%20remote&filter=true `jobs` `remote`
 
-http://jobs.ethercasts.com/ `remote` `jobs` `cool`
+http://jobs.ethercasts.com/ `remote` `jobs` `cool` `api`
 
 https://remoteok.io/remote-web-dev-jobs `remote` `freelance` `jobs` `cool`
 
@@ -66,70 +66,39 @@ https://www.dice.com/ `jobs` `freelance`
 
 https://www.peopleperhour.com/freelance-jobs?category=36&ref=categories `remote` `freelance` `cool` `javascript`
 
-http://jobs.trovit.co.uk/index.php/cod.search_jobs/type.0/what_d.remote/sug.0/isUserSearch.1/origin.1/order_by.relevance/distance.25/job_type.Freelance/
+http://stackoverflow.com/jobs?sort=i&q=javascript&r=true `remote` `jobs` 
 
-* http://stackoverflow.com/jobs?r=True
-* https://remoteok.io/
-* https://www.linkedin.com/jobs/remote-developer-jobs?country=gb
-* https://www.cwjobs.co.uk/jobs/remote/in-london
-* https://www.peopleperhour.com/freelance-programming-jobs?locationFilter=remote
-* http://www.careerjet.co.uk/remote-programmer-jobs.html
-**https://github.com/jessicard/remote-jobs**
-* https://github.com/hugo53/awesome-RemoteWork
+https://www.linkedin.com/jobs/remote-developer-jobs?country=gb `jobs` 
 
+https://www.cwjobs.co.uk/jobs/remote/in-london `jobs`
 
-* https://www.skillshare.com/
-* https://www.livecoding.tv/
-* https://www.codementor.io/mentor/apply?v=expert
-* https://www.codementor.io/gigs/web-development-services
-* https://jobs.github.com/
+http://www.careerjet.co.uk/remote-programmer-jobs.html `remote` `jobs`
 
+https://jobs.github.com/ `jobs`
 
+https://weworkremotely.com/jobs/search?term=javascript `api` `remote` `javascript` `jobs`
+
+https://www.upwork.com/o/jobs/browse/?q=javascript# `api` `remote` `jobs` `freelance` `cool` `javascript`
+
+https://remotebase.io/companies `api` `jobs`
+
+https://remotejobs.com/ `remote` `job` 
+
+https://www.freelancer.com/jobs/Javascript/?cl=l-en `remote` `freelance` `javascript` `cool`
+
+https://www.flexjobs.com/search?search=javascript+remote&old=1&jobtype=&schedule=&category=&state=&flex= `remote` `jobs` `javascript` `cool`
+
+https://www.glassdoor.de/Job/remote-javascript-jobs-SRCH_IL.0,6_IS11047_KO7,17.htm?suggestChosen=false&jobType=all&typedKeyword=javascript&locT=S&sc.keyword=javascript&clickSource=searchBtn&locId=11047&suggestCount=0&countryRedirect=true `jobs` `remote` `javascript`
+
+http://www.guru.com/d/jobs/q/javascript/ `freelance` `javascript` `remote` `cool` 
 
 ---
-
----
-## 100% remote freelance projects (and jobs)
-* https://weworkremotely.com/jobs/search?term=javascript
 
 
 ------------------------------------------------------------------------------
 
-## yes API
-```
-* https://www.upwork.com/o/jobs/browse/?q=javascript#
-  * https://www.upwork.com/?r
-  * https://developers.upwork.com/
-* http://www.indeed.com/q-Remote-javascript-jobs.html
-  * http://www.indeed.com/publisher
-* http://jobs.ethercasts.com/
- * http://jobs.ethercasts.com/api/jobs
-* https://remotebase.io/companies
- * https://remotebase.github.io/remotebase-api/
-
-```
-
 ## not found API / some not remote
 ```
-https://remotejobs.com/ `remote` `job` 
-http://www.guru.com/d/freelancers/q/javascript/
-https://www.dice.com/jobs?q=javascript&l=remote&searchid=595019450097
-https://www.freelancer.com/
-https://remotejobs.com/
-https://landing.jobs/offers?page=1&s=featured&s_l=0&s_h=100
-http://jobs.remotive.io/
-https://www.bountysource.com/
-https://authenticjobs.com/#category=4&onlyremote=1
-http://frontenddeveloperjob.com/
-https://weworkremotely.com/jobs/search?term=javascript
-http://www.skipthedrive.com/jobs/?search=javascript&homefindjobs=Search
-https://www.flexjobs.com/search?search=javascript+remote&old=1&jobtype=&schedule=&category=&state=&flex=
-https://www.glassdoor.de/Job/remote-javascript-jobs-SRCH_IL.0,6_IS11047_KO7,17.htm?suggestChosen=false&jobType=all&typedKeyword=javascript&locT=S&sc.keyword=javascript&clickSource=searchBtn&locId=11047&suggestCount=0&countryRedirect=true
-http://www.digitalnomadjobs.com/finding-work-online/
-http://www.guru.com/
-http://europeremotely.com/
-https://www.honeypot.io/  
-https://www.awesomeweb.com/
 ```
 
 ## not sorted
@@ -169,6 +138,21 @@ https://workfrom.co/ `coworking`
 
 https://www.flexjobs.com/international/United-Kingdom-telecommuting-jobs `not for developers`
 
+https://github.com/jessicard/remote-jobs `listing of companies`
+
+https://github.com/hugo53/awesome-RemoteWork `listing of remote job platforms`
+
+https://www.skillshare.com/ `e-learning platform`
+
+https://www.livecoding.tv/ `e-learning platform`
+
+https://www.codementor.io/gigs/web-development-services `e-learning platform` `developers offer`
+
+http://europeremotely.com/ `newsletter`
+
+https://www.honeypot.io/  `direct offers`
+
+https://www.awesomeweb.com/ `direct notifications`
 
 ...
 ```
