@@ -31,6 +31,47 @@ http://hnhiring.me/ `freelance` `remote` `javascript` `ok`
 
 http://jobs.smashingmagazine.com/freelance `freelance` `javascript` `ok` `remote`
 
+https://remoteok.io/remote-web-dev-jobs `remote` `javascript``freelance` `jobs` `ok`
+
+http://frontenddeveloperjob.com/ `remote` `freelance` `jobs` `ok`
+
+https://www.bountysource.com/ `remote` `freelance` `ok`
+
+http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=javascript&profisuche=0&pq_sorttype=1&area=newpb&redirect=1 `remote` `freelance`
+
+http://www.idealist.org/search/v2/?qs=QlpoOTFBWSZTWan7ZN8AAFGfgAMAMAIBAAAAuvf_oCAAkCjQ0AAAAyJqek9I9SDDTU0vp5lKNmHfdKrkI9HK47Siob4_XcVJpzfgY2qTq-49UJYfVNpmOgliXgw4jXZwvUNsNERCqjPsJCjMRjQUaAsHUWJhpwHqkiuCFTwfJYWnlltDCX48WXWo3t_F3JFOFCQqftk3wA== `remote` `freelance` `ok`
+
+https://www.cwjobs.co.uk/jobs/remote/in-london `jobs` 
+# `remote` `freelance` `javascript`  
+
+http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `ok`
+
+https://www.wfh.io/latest-remote-jobs `remote` `jobs` `freelance`
+ 
+https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript` `ok`
+
+http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `ok` `javascript`
+
+https://www.peopleperhour.com/freelance-jobs?category=36&ref=categories `remote` `freelance` `ok` `javascript`
+
+https://www.upwork.com/o/jobs/browse/?q=javascript# `api` `remote` `jobs` `freelance` `ok` `javascript`
+
+https://www.freelancer.com/jobs/Javascript/?cl=l-en `remote` `freelance` `javascript` `ok`
+
+http://www.guru.com/d/jobs/q/javascript/ `freelance` `javascript` `remote` `ok` 
+
+http://www.simplyhired.com/k-remote-web-developer-jobs.html `jobs` `freelance` `remote` `ok` `javascript`
+
+https://twitter.com/search?q=%23remotejob%20%23javascript&src=typd `jobs` `freelance` `remote` `ok` `javascript`
+
+https://twitter.com/remotees `jobs` `freelance` `remote` `ok` `javascript`
+
+https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript`
+
+http://hnhiring.me/ `freelance` `remote` `javascript` `ok`
+
+http://jobs.smashingmagazine.com/freelance `freelance` `javascript` `ok` `remote`
+
 ---
 
 ### Jobs  
@@ -75,23 +116,13 @@ https://authenticjobs.com/#category=4&onlyremote=1 `remote` `ok`
 
 https://dribbble.com/jobs?utf8=%E2%9C%93&anywhere=true&location=Anywhere `jobs` `remote` 
 
-http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=javascript&profisuche=0&pq_sorttype=1&area=newpb&redirect=1 `remote` `freelance`
-
 https://www.themuse.com/jobs?keyword%5B%5D=javascript%20remote&filter=true `jobs` `remote`
 
 http://jobs.ethercasts.com/ `remote` `jobs` `ok` `api`
 
-https://remoteok.io/remote-web-dev-jobs `remote` `freelance` `jobs` `ok`
-
 https://remotebase.io/companies `jobs` `remote` `ok`
 
-https://www.bountysource.com/ `remote` `freelance` `ok`
-
 https://remote.co/remote-jobs/developer/ `remote` `jobs` 
-
-http://frontenddeveloperjob.com/ `remote` `freelance` `jobs` `ok`
-
-http://www.idealist.org/search/v2/?qs=QlpoOTFBWSZTWan7ZN8AAFGfgAMAMAIBAAAAuvf_oCAAkCjQ0AAAAyJqek9I9SDDTU0vp5lKNmHfdKrkI9HK47Siob4_XcVJpzfgY2qTq-49UJYfVNpmOgliXgw4jXZwvUNsNERCqjPsJCjMRjQUaAsHUWJhpwHqkiuCFTwfJYWnlltDCX48WXWo3t_F3JFOFCQqftk3wA== `remote` `freelance` `ok`
 
 https://www.cybercoders.com/jobs/remote-javascript-developer-jobs/ `remote` `jobs`
 
@@ -115,38 +146,7 @@ https://stackoverflow.com/jobs?searchTerm=javascript&allowsremote=true `remote` 
 
 https://stackoverflow.com/jobs/remote-developer-jobs `remote` `jobs`
 
-https://www.wfh.io/latest-remote-jobs `remote` `jobs` `freelance`
-
-http://www.candoerz.com/ `jobs` `remote`
-
-https://www.cwjobs.co.uk/jobs/remote/in-london `jobs` 
-# `remote` `freelance` `javascript`     
-
-http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `ok`
-
-https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript` `ok`
-
-http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `ok` `javascript`
-
-https://www.peopleperhour.com/freelance-jobs?category=36&ref=categories `remote` `freelance` `ok` `javascript`
-
-https://www.upwork.com/o/jobs/browse/?q=javascript# `api` `remote` `jobs` `freelance` `ok` `javascript`
-
-https://www.freelancer.com/jobs/Javascript/?cl=l-en `remote` `freelance` `javascript` `ok`
-
-http://www.guru.com/d/jobs/q/javascript/ `freelance` `javascript` `remote` `ok` 
-
-http://www.simplyhired.com/k-remote-web-developer-jobs.html `jobs` `freelance` `remote` `ok` `javascript`
-
-https://twitter.com/search?q=%23remotejob%20%23javascript&src=typd `jobs` `freelance` `remote` `ok` `javascript`
-
-https://twitter.com/remotees `jobs` `freelance` `remote` `ok` `javascript`
-
-https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript`
-
-http://hnhiring.me/ `freelance` `remote` `javascript` `ok`
-
-http://jobs.smashingmagazine.com/freelance `freelance` `javascript` `ok` `remote`
+http://www.candoerz.com/ `jobs` `remote`  
 
 ---
 
