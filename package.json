@@ -4,6 +4,7 @@
   "description": "crawl the web for remote work",
   "main": "source/index.js",
   "scripts": {
+    "start": "node source/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/workingamigos/crawler/issues"
   },
-  "homepage": "https://github.com/workingamigos/crawler#readme"
+  "homepage": "https://github.com/workingamigos/crawler#readme",
+  "dependencies": {
+    "x-ray": "^2.3.1",
+    "x-ray-nightmare": "^0.1.3"
+  }
 }
