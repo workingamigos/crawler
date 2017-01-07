@@ -30,7 +30,9 @@ https://twitter.com/search?q=%23remotejob%20%23javascript&src=typd `jobs` `freel
 
 https://twitter.com/remotees `jobs` `freelance` `remote` `ok` `javascript`
 
-https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript`
+
+[crawler](https://github.com/workingamigos/crawler/blob/master/reddit_JS_jobs.js) 
+https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript` 
 
 http://hnhiring.me/ `freelance` `remote` `javascript` `ok`
 
