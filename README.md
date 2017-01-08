@@ -1,8 +1,14 @@
 # crawler
 crawl the web for remote work
 
-# TODO
+# usage
 
+```bash
+npm start
+```
+
+# TODO
+* @TODO: try gigs
 
 # REMOTE Javascript
 

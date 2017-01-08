@@ -1,8 +1,8 @@
-var request = require('superagent');
-var Nightmare = require('nightmare');
-var nightmare = Nightmare({ show: true });
+var request = require('superagent')
+var nightmare = require('nightmare')
 
-nightmare
+module.exports = function execute (opts, report) {
+  nightmare(opts||{})
   .goto('http://jobs.smashingmagazine.com/freelance')
   .evaluate(filterPosts)
   .end()
@@ -20,21 +20,23 @@ nightmare
     })
     return urls
     function criteria (post) {
-      if  (post &&
-          (post.includes('javascript') ||
-           post.includes('Javascript') ||
-           post.includes('js') ||
-           post.includes('JS') ||
-           post.includes('front') ||
-           post.includes('Front') ||
-           post.includes('mobile')
-         )) { return true }
+      if  (post && true
+        //   (post.includes('javascript') ||
+        //    post.includes('Javascript') ||
+        //    post.includes('js') ||
+        //    post.includes('JS') ||
+        //    post.includes('front') ||
+        //    post.includes('Front') ||
+        //    post.includes('mobile')
+        //  )
+      ) { return true }
     }
   }
 
   function scrapeJobs (urls) {
     next(urls.pop(), callback)
     function callback (data) {
+      report(data)
       sendData(data)
       if (urls.length) next(urls.pop(), callback)
     }
@@ -63,3 +65,4 @@ nightmare
       .end(function (err, res) {
       })
   }
+}

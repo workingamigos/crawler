@@ -1,14 +1,18 @@
 var bulk = require('bulk-require')
 var pages = bulk(__dirname, ['pages/**/*.js']).pages
 
-var nightmare = require('nightmare')
-var nm = nightmare({ show: false })
+var jobs = Object.keys(pages).map(name => ({ fn: pages[name], name: name }))
 
-Object.keys(pages).forEach(name => {
-	var page = pages[name]
-	var url = page.url
-	var query = page.query
-	nm.goto(url).evaluate(query).end().then(success).catch(fail)
-	function success (html) { console.log(html) }
-	function fail (error) { console.error('Search failed:', error) }
-})
+execute(jobs)
+
+function execute (jobs) {
+	next(jobs.pop(), callback)
+	function callback (data) { if (jobs.length) next(jobs.pop(), callback) }
+}
+
+function next (job, next) {
+	job.fn({ show: true }, function callback (result) {
+		console.log('-------')
+		console.log(job.name, result)
+	})
+}
