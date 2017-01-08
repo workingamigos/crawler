@@ -30,8 +30,6 @@ https://twitter.com/search?q=%23remotejob%20%23javascript&src=typd `jobs` `freel
 
 https://twitter.com/remotees `jobs` `freelance` `remote` `ok` `javascript`
 
-
-[crawler](https://github.com/workingamigos/crawler/blob/master/reddit_JS_jobs.js)
 https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript`
 
 https://news.ycombinator.com/item?id=13301833 `freelance` `remote` `javascript` `ok`
@@ -48,10 +46,7 @@ http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=jav
 
 http://www.idealist.org/search/v2/?qs=QlpoOTFBWSZTWan7ZN8AAFGfgAMAMAIBAAAAuvf_oCAAkCjQ0AAAAyJqek9I9SDDTU0vp5lKNmHfdKrkI9HK47Siob4_XcVJpzfgY2qTq-49UJYfVNpmOgliXgw4jXZwvUNsNERCqjPsJCjMRjQUaAsHUWJhpwHqkiuCFTwfJYWnlltDCX48WXWo3t_F3JFOFCQqftk3wA== `remote` `freelance` `ok`
 
-https://www.cwjobs.co.uk/jobs/remote/in-london `jobs`
-
-
-# `remote` `freelance` `javascript`  
+https://www.cwjobs.co.uk/jobs/remote/in-london `jobs` `remote` `freelance` `javascript`  
 
 http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `ok`
 

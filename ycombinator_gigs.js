@@ -1,6 +1,4 @@
 var request = require('superagent');
-var Xray = require('x-ray');
-var x = Xray();
 var Nightmare = require('nightmare');
 var nightmare = Nightmare({ show: true });
 
@@ -15,28 +13,29 @@ nightmare
 
 function filterPosts () {
   var list = []
-  console.log("sdfasdf")
   var nodeList = document.querySelectorAll('.default .comment')
   nodeList.forEach(function (x){
     var post = x.innerText
-    console.log("start criteria")
     if (criteria(post)) {
       list.push(post)
     }
   })
   return list
   function criteria (post) {
-    //console.log("start criteria")
     if (post.includes('SEEKING FREELANCERS - REMOTE') &&
         (post.includes('javascript') ||
-         post.includes('js')
+         post.includes('Javascript') ||
+         post.includes('js') ||
+         post.includes('JS') ||
+         post.includes('front') ||
+         post.includes('Front') ||
+         post.includes('mobile') ||
         )
       ) { return true }
   }
 }
 
 function scrapeJobs (list) {
-  console.log("asfg")
   sendData(list)
 }
 

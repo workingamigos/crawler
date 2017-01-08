@@ -1,6 +1,4 @@
 var request = require('superagent');
-var Xray = require('x-ray');
-var x = Xray();
 var Nightmare = require('nightmare');
 var nightmare = Nightmare({ show: true });
 
@@ -24,9 +22,8 @@ function getUrls () {
 }
 
 function scrapeUrls (urls) {
-
   next(urls.pop(), callback)
-
+ //urls.pop deletes last element and returns it, this is then first argument in next(url,cbFn)
   function callback (data) {
     sendData(data)
     if (urls.length) next(urls.pop(), callback)
@@ -35,18 +32,17 @@ function scrapeUrls (urls) {
 
 function next (url, cbFn) {
   Nightmare()
-  .goto(url)
-  .wait('.thing .entry .expando .usertext .usertext-body .md')
-  //.wait(500)
-  .evaluate(function (){
-    var result = document.querySelector('.thing .entry .expando .usertext .usertext-body .md').innerText
-    return result
-  })
-  .end()
-  .then(function (result) { cbFn(result) })
-  .catch(function (error) {
-    console.error('Search failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:', error);
-  })
+    .goto(url)
+    .wait('.thing .entry .expando .usertext .usertext-body .md')
+    .evaluate(function (){
+      var result = document.querySelector('.thing .entry .expando .usertext .usertext-body .md').innerText
+      return result
+    })
+    .end()
+    .then(function (result) { cbFn(result) })
+    .catch(function (error) {
+      console.error('Search failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:', error);
+    })
 }
 
 function sendData (result) {
