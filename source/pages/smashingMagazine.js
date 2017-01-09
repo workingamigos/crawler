@@ -43,12 +43,11 @@ module.exports = function execute (opts, report) {
   }
 
   function next (url, cbFn) {
-    Nightmare()
+    nightmare()
       .goto(url)
       .wait('.job-entry')
       .evaluate(function (){
-        var result = document.querySelector('.job-entry').innerText
-        return result
+        return document.querySelector('.job-entry').innerText
       })
       .end()
       .then(function (result) { cbFn(result) })

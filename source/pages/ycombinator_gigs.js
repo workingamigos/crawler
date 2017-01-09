@@ -8,6 +8,7 @@ module.exports = function execute (opts, report) {
     .end()
     .then(scrapeJobs)
     .catch(function (error) {
+      console.error('lalala4')
       console.error('Search failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:', error);
     })
 
