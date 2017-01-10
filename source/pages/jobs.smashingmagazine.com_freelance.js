@@ -20,15 +20,15 @@ module.exports = function execute (opts, report) {
     })
     return urls
     function criteria (post) {
-      if  (post && true
-        //   (post.includes('javascript') ||
-        //    post.includes('Javascript') ||
-        //    post.includes('js') ||
-        //    post.includes('JS') ||
-        //    post.includes('front') ||
-        //    post.includes('Front') ||
-        //    post.includes('mobile')
-        //  )
+      post = post.toLowerCase()
+      if  (post &&
+          ( post.includes('css') ||
+            post.includes('npm') ||
+            post.includes('javascript') ||
+            post.includes('js') ||
+            post.includes('front') ||
+            post.includes('mobile')
+         )
       ) { return true }
     }
   }

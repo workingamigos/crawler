@@ -19,15 +19,16 @@ module.exports = function execute (opts, report) {
       }
     })
     return urls
-    function criteria (title) {
-      if  (title.includes('javascript') ||
-           title.includes('Javascript') ||
-           title.includes('js') ||
-           title.includes('JS') ||
-           title.includes('front') ||
-           title.includes('Front') ||
-           title.includes('mobile')
-          ) { return true }
+    function criteria (post) {
+      post = post.toLowerCase()
+      if  (post && (
+           post.includes('css') ||
+           post.includes('npm') ||
+           post.includes('javascript') ||
+           post.includes('js') ||
+           post.includes('front') ||
+           post.includes('mobile')
+         )) { return true }
     }
   }
 
@@ -41,7 +42,7 @@ module.exports = function execute (opts, report) {
   }
 
   function next (url, cbFn) {
-    Nightmare()
+    nightmare()
       .goto(url)
       .wait('#jobsboard')
       .evaluate(function (){
