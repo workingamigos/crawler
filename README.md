@@ -4,7 +4,11 @@ crawl the web for remote work
 # usage
 
 ```bash
-npm start
+npm start # scrapes all `./source/pages`
+# or
+npm start -- identifier
+# `identifier` needs to be part of the url you want to scrape
+# see `./source/pages` for all available urls
 ```
 
 # TODO

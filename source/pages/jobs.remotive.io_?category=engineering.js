@@ -51,7 +51,7 @@ module.exports = function execute (opts, report) {
       if (result.length) _next(result.pop(), callback)
       else {
         nm.end().run(function(){})
-        if (typeof report === 'function') report(DATA)
+        if (typeof report === 'function') report(null, DATA)
         sendData(DATA)
       }
     }

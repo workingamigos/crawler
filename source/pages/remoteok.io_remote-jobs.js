@@ -3,51 +3,50 @@ var nightmare = require('nightmare')
 
 module.exports = function execute (opts, report) {
   nightmare(opts||{})
-  .goto('http://jobs.smashingmagazine.com/freelance')
+  .goto('https://remoteok.io/remote-jobs')
   .evaluate(filterPosts)
   .end()
-  .then(scrapeJobs)
+  .then(scrapeUrls)
 
   function filterPosts () {
     var urls = []
-    var nodeList = document.querySelectorAll('.entry-list li a')
+    var nodeList = document.querySelectorAll('.company_and_position a')
     nodeList.forEach(function (x){
-      var post = x.innerText
+      var title = x.innerText
       var url = x.href
-      if (criteria(post)) {
+      if (criteria(title)) {
         urls.push(url)
       }
     })
     return urls
-    function criteria (post) {
-      if  (post && true
-        //   (post.includes('javascript') ||
-        //    post.includes('Javascript') ||
-        //    post.includes('js') ||
-        //    post.includes('JS') ||
-        //    post.includes('front') ||
-        //    post.includes('Front') ||
-        //    post.includes('mobile')
-        //  )
-      ) { return true }
+    function criteria (title) {
+      if  (title.includes('javascript') ||
+           title.includes('Javascript') ||
+           title.includes('js') ||
+           title.includes('JS') ||
+           title.includes('front') ||
+           title.includes('Front') ||
+           title.includes('mobile')
+          ) { return true }
     }
   }
 
-  function scrapeJobs (urls) {
+  function scrapeUrls (urls) {
     next(urls.pop(), callback)
     function callback (data) {
-      report(data)
+      report(null, data)
       sendData(data)
       if (urls.length) next(urls.pop(), callback)
     }
   }
 
   function next (url, cbFn) {
-    nightmare()
+    Nightmare()
       .goto(url)
-      .wait('.job-entry')
+      .wait('#jobsboard')
       .evaluate(function (){
-        return document.querySelector('.job-entry').innerText
+        var result = document.querySelector('#jobsboard').innerText
+        return result
       })
       .end()
       .then(function (result) { cbFn(result) })
@@ -58,10 +57,11 @@ module.exports = function execute (opts, report) {
 
   function sendData (result) {
     request
-      .post('https://scraping-a5a55.firebaseio.com/smashingMagazine.json')
+      .post('https://scraping-a5a55.firebaseio.com/remoteok_jobs.json')
       .send({ description: result })
       .set('Accept', 'application/json')
       .end(function (err, res) {
+        // Calling the end function will send the request
       })
   }
 }

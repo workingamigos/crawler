@@ -37,7 +37,7 @@ module.exports = function execute (opts, report) {
   }
 
   function scrapeJobs (list) {
-    report(list)
+    report(null, list)
     sendData(list)
   }
 

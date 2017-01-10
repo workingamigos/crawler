@@ -25,7 +25,7 @@ module.exports = function execute (opts, report) {
     next(urls.pop(), callback)
     //urls.pop deletes last element and returns it, this is then first argument in next(url,cbFn)
     function callback (data) {
-      report(data)
+      report(null, data)
       sendData(data)
       if (urls.length) next(urls.pop(), callback)
     }
