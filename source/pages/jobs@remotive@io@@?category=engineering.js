@@ -1,40 +1,18 @@
-var request = require('superagent')
-var nightmare = require('nightmare')
 var url = require('url')
+var nightmare = require('nightmare')
 
-var tech = [
-  ' js ',
-  ' npm ',
-  ' browserify ',
-  // ' remote ',
-  ' javascript ',
-  ' cordova ',
-  ' phonegap '
-  // ' css ',
-  // ' html ',
-  // ' svg '
-]
-var antitech = [
-  ' php ',
-  ' django ',
-  ' python ',
-  ' ruby ',
-  ' rails ',
-  ' java ',
-  ' rust ',
-  ' clojure ',
-  ' elm ',
-  ' coffeescript ',
-  ' wordpress ',
-  ' drupal ',
-  ' yoomla ',
-  ' ionic ',
-  ' angular '
-]
+var send = require('_send')
+var meta = require('_meta')
+var get = require('_get')
+
+var URL = get.url(__filename)
+var NAME = get.name(URL)
+
 module.exports = function execute (opts, report) {
   opts = opts || { show: false }
   var nm = nightmare(opts)
-  nm.goto('http://jobs.remotive.io/?category=engineering')
+
+  nm.goto(URL)
     .evaluate(query)
     .run(collect)
 
@@ -46,13 +24,14 @@ module.exports = function execute (opts, report) {
     _next(result.pop(), callback)
     function callback (data) {
       DATA.push(data)
-      console.log(data)
-      console.log(`progress: ${result.length}/${total}`)
+      console.log(`download: ${result.length}/${total}`)
       if (result.length) _next(result.pop(), callback)
       else {
         nm.end().run(function(){})
-        if (typeof report === 'function') report(null, DATA)
-        sendData(DATA)
+        send(DATA, function (err, res) {
+          if (err) throw err
+          if (typeof report === 'function') report(null, DATA)
+        })
       }
     }
   }
@@ -64,18 +43,15 @@ function next (item, cb) {
     .evaluate(function () { return document.body.innerText.toLowerCase() })
     .run(function (error, text) {
       if (error) return console.error(error)
-      item.tech = tech.filter(x=>~text.indexOf(x))
-      item.antitech = antitech.filter(x=>~text.indexOf(x))
-      // item.text = text.split('\n').filter(x=>x!=='')
-      cb(item)
+      meta(text, function (err, info) {
+        item.text = info.text
+        item.stack = {
+          tech: info.tech,
+          antitech: info.antitech
+        }
+        cb(item)
+      })
     })
-}
-function sendData (data) {
-  request
-    .post('https://scraping-a5a55.firebaseio.com/remotive.json')
-    .send(data)
-    .set('Accept', 'application/json')
-    .end(function (err, res) {})
 }
 
 function query () {
