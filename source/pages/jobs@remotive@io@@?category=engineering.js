@@ -12,7 +12,7 @@ module.exports = function execute (opts, report) {
   opts = opts || { show: false }
   var nm = nightmare(opts)
 
-  nm.goto(URL)
+  nm.goto(`http://${URL}`)
     .evaluate(query)
     .run(collect)
 

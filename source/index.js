@@ -19,7 +19,7 @@ function getJobs (abbreviations) {
 }
 
 function startAll (jobs) {
-	// execute(jobs.pop(), next)
+	execute(jobs.pop(), next)
 	function next () { if (jobs.length) execute(jobs.pop(), next) }
 }
 

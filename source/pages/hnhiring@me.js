@@ -12,7 +12,7 @@ module.exports = function execute (opts, report) {
   var nm = nightmare(opts)
 
   nm.useragent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36")
-    .goto('http://'+url)
+    .goto(`http://${URL}`)
     .click('#sidebar > ul > li:first-child a')
     .wait('#content > ul > li')
     .end()
@@ -23,7 +23,8 @@ module.exports = function execute (opts, report) {
       if (error) return console.log(error)
       var counter = result.length
       var DATA = []
-      result.forEach(function (data) {
+      result.forEach(annotate)
+      function annotate (data) {
         meta(data.text, function (err, info) {
           if (err) throw err
           data.text = info.text
@@ -35,9 +36,7 @@ module.exports = function execute (opts, report) {
           if (--counter) DATA.push(data)
           else send(NAME, data, report)
         })
-      })
-
-
+      }
     }
     function query () {
       var arr = Array

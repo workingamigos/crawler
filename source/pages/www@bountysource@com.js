@@ -37,7 +37,6 @@ module.exports = function execute (opts, report) {
   }
 
   function sendData (result) {
-    console.log(result)
     request
       .post('https://scraping-a5a55.firebaseio.com/bountySourceGigs.json')
       .send({ description: result })
