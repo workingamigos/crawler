@@ -19,6 +19,7 @@ function getJobs (abbreviations) {
 }
 
 function startAll (jobs) {
+	console.log(jobs)
 	execute(jobs.pop(), next)
 	function next () { if (jobs.length) execute(jobs.pop(), next) }
 }
