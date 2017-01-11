@@ -3,7 +3,7 @@ var nightmare = require('nightmare')
 
 module.exports = function execute (opts, report) {
   nightmare(opts||{})
-  .goto('http://jobs.smashingmagazine.com/freelance')
+  .goto('http://jobs.smashingmagazine.com/all/programming')
   .evaluate(filterPosts)
   .end()
   .then(scrapeJobs)

@@ -23,15 +23,16 @@ module.exports = function execute (opts, report) {
     })
     return list
     function criteria (post) {
-      if (post.includes('SEEKING FREELANCERS - REMOTE') && true
-          // (post.includes('javascript') ||
-          //  post.includes('Javascript') ||
-          //  post.includes('js') ||
-          //  post.includes('JS') ||
-          //  post.includes('front') ||
-          //  post.includes('Front') ||
-          //  post.includes('mobile') ||
-          // )
+      post = post.toLowerCase()
+      if (post.includes('SEEKING FREELANCERS - REMOTE') &&
+          (post.includes('javascript') ||
+           post.includes('Javascript') ||
+           post.includes('js') ||
+           post.includes('JS') ||
+           post.includes('front') ||
+           post.includes('Front') ||
+           post.includes('mobile')
+          )
         ) { return true }
     }
   }

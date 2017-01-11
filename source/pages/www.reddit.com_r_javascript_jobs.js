@@ -6,7 +6,7 @@ module.exports = function execute (opts, report) {
     .goto('https://www.reddit.com/r/javascript_jobs/')
     .evaluate(getUrls)
     .end()
-    .then(scrapeUrls)
+    .run(scrapeUrls)
 
   function getUrls () {
     var nodeList = document.querySelectorAll('.thing .entry .title a')
@@ -21,7 +21,8 @@ module.exports = function execute (opts, report) {
     return urls
   }
 
-  function scrapeUrls (urls) {
+  function scrapeUrls (error, urls) {
+    if (error) throw error
     next(urls.pop(), callback)
     //urls.pop deletes last element and returns it, this is then first argument in next(url,cbFn)
     function callback (data) {
@@ -36,15 +37,18 @@ module.exports = function execute (opts, report) {
     .goto(url)
     .wait('.thing .entry .expando .usertext .usertext-body .md')
     //.wait(500)
-    .evaluate(function (){
+    .evaluate(query)
+    .end()
+    .run(collect)
+
+    function query () {
       var result = document.querySelector('.thing .entry .expando .usertext .usertext-body .md').innerText
       return result
-    })
-    .end()
-    .then(function (result) { cbFn(result) })
-    .catch(function (error) {
-      console.error('Search failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:', error);
-    })
+    }
+    function collect (error, data) {
+      if (error) throw error
+      cbFn(data)
+    }
   }
 
   function sendData (result) {
