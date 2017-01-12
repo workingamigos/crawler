@@ -29,7 +29,7 @@ function startAll (jobs) {
 function execute (job, next) {
 	job.fn(opts, callback)
 	function callback (error, result) {
-		if (error) throw error
+		if (error) return console.error(error)
 		var data = result.DATA
 		var name = result.NAME
 		send(name, data, function (err, res) {

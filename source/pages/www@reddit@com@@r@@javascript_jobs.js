@@ -23,8 +23,6 @@ function execute (opts, done) {
 
 
   function collect (error, urls) {
-    console.log(urls)
-    console.log(urls.length)
     if (error) return done(error)
     var DATA = []
     var total = urls.length
@@ -44,14 +42,12 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('.thing .entry .expando .usertext .usertext-body .md')
-  //.wait(500)
   .evaluate(query)
   .end()
   .run(cbFn)
 
   function query () {
-    return document.querySelector('.thing .entry .expando .usertext .usertext-body .md').innerText
+    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText
   }
 }
 
