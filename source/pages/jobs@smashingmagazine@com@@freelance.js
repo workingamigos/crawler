@@ -1,67 +1,66 @@
-var request = require('superagent')
 var nightmare = require('nightmare')
 
-module.exports = function execute (opts, report) {
-  nightmare(opts||{})
-  .goto('http://jobs.smashingmagazine.com/freelance')
-  .evaluate(filterPosts)
+var meta = require('_meta')
+var get = require('_get')
+
+var URL = get.url(__filename)
+var NAME = get.name(URL)
+
+module.exports = execute
+
+function execute (opts, done) {
+  if (typeof done !== 'function') return
+  opts = opts || { show: false }
+
+  nightmare(opts)
+  .goto(`http://${URL}`)
+  .evaluate(query)
   .end()
-  .then(scrapeJobs)
+  .run(collect)
 
-  function filterPosts () {
-    var urls = []
-    var nodeList = document.querySelectorAll('.entry-list li a')
-    nodeList.forEach(function (x){
-      var post = x.innerText
-      var url = x.href
-      if (criteria(post)) {
-        urls.push(url)
-      }
-    })
-    return urls
-    function criteria (post) {
-      post = post.toLowerCase()
-      if  (post &&
-          ( post.includes('css') ||
-            post.includes('npm') ||
-            post.includes('javascript') ||
-            post.includes('js') ||
-            post.includes('front') ||
-            post.includes('mobile')
-         )
-      ) { return true }
+
+
+
+
+  function collect (error, result) {
+    if (error) return done(error)
+    var DATA = []
+    var total = result.length
+    if (result.length) next(result.pop(), callback)
+    function callback (error, data) {
+      if (error) return done(error)
+      if (data) DATA.push(data)
+      console.log(`${result.length}/${total} - ${URL}`)
+      if (result.length) next(result.pop(), callback)
+      else done(null, { NAME, DATA })
     }
   }
 
-  function scrapeJobs (urls) {
-    next(urls.pop(), callback)
-    function callback (data) {
-      report(null, data)
-      sendData(data)
-      if (urls.length) next(urls.pop(), callback)
-    }
-  }
+}
 
-  function next (url, cbFn) {
-    nightmare()
-      .goto(url)
-      .wait('.job-entry')
-      .evaluate(function (){
-        return document.querySelector('.job-entry').innerText
-      })
-      .end()
-      .then(function (result) { cbFn(result) })
-      .catch(function (error) {
-        console.error('Search failed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:', error);
-      })
+function next (item, cbFn) {
+  nightmare()
+  .goto(item.url)
+  .wait('.job-entry')
+  .evaluate(query)
+  .end()
+  .run(collect)
+  function query (){
+    return document.querySelector('.job-entry').innerText
   }
+  function collect (error, result) {
+    if (error) return done(error)
+    meta({ item, raw: result }, cbFn)
+  }
+}
 
-  function sendData (result) {
-    request
-      .post('https://scraping-a5a55.firebaseio.com/smashingMagazine.json')
-      .send({ description: result })
-      .set('Accept', 'application/json')
-      .end(function (err, res) {
-      })
-  }
+function query () {
+  var urls = []
+  var nodeList = document.querySelectorAll('.entry-list li a')
+  nodeList.forEach(function (x) {
+    var post = x.innerText
+    var url = x.href
+    urls.push({ post, url })
+  })
+  return urls
 }

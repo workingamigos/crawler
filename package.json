@@ -1,10 +1,10 @@
 {
   "name": "crawler",
   "version": "1.0.0",
-  "description": "crawl the web for remote work",
+  "description": "crawl the web for remote javascript work",
   "main": "source/index.js",
   "scripts": {
-    "start": "node source/index.js",
+    "start": "benny-hill node source/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +15,9 @@
     "crawl",
     "scrape",
     "remote",
-    "jobs"
+    "javascript",
+    "jobs",
+    "gigs"
   ],
   "author": "@serapath",
   "license": "AGPL-3.0",
@@ -39,5 +41,8 @@
     "superagent": "^3.3.1",
     "x-ray": "^2.3.1",
     "x-ray-nightmare": "^0.1.3"
+  },
+  "devDependencies": {
+    "benny-hill": "^1.1.0"
   }
 }

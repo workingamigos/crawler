@@ -1,76 +1,77 @@
-var request = require('superagent')
 var nightmare = require('nightmare')
 
-module.exports = function execute (opts, logging) {
-  opts = opts || { show: false }
-  var allUrls = []
-  //opts.show = true
-  nightmare(opts)
-    .goto('http://www.freelancermap.com/it-projects/javascript-189')
-    .evaluate(getUrls)
-    .end()
-    .run(nextPage)
+var meta = require('_meta')
+var get = require('_get')
 
-  function getUrls () {
-    var urls = []
-    var nodeList = document.querySelectorAll('.title a')
-    ;(nodeList||[]).forEach(function (x) {
-      urls.push(x.href)
-    })
-    var array = document.querySelectorAll('.next')||[]
-    var next = (array[array.length - 1]||{}).href
-    return {
-      urls, //same as urls:urls, next:next
-      next
-    }
-  }
+var URL = get.url(__filename)
+var NAME = get.name(URL)
+
+module.exports = execute
+
+function execute (opts, done) {
+  if (typeof done !== 'function') return
+  opts = opts || { show: false }
+
+  nightmare(opts)
+  .goto(`http://${URL}`)
+  .evaluate(query)
+  .end()
+  .run(nextPage)
+
+
+
+  var allUrls = []
 
   function nextPage (error, data) { //because of .run, we need 2 arguments: err & result
-    if (error) throw error
+    if (error) return done(error)
     allUrls = allUrls.concat(data.urls)
+    console.log(`collected urls: ${allUrls.length}`)
     var next = data.next
-    if (next) {
-      nightmare(opts)
-        .goto(next)
-        .wait('.title a')
-        .evaluate(getUrls)
-        .end()
-        .run(nextPage)
-    }
-    else scrapeUrls(allUrls)
-  }
-
-  function scrapeUrls (urls) {
-    console.log(urls)
-    next(urls.pop(), callback)
-    function callback (error, data) {
-      if (error) return logging(error)
-      logging(null, data)
-      sendData(data)
-      if (urls.length) next(urls.pop(), callback)
-    }
-  }
-
-  function next (url, cbFn) {
-    console.log(url)
-    nightmare(opts)
-      .goto(url)
-      .wait('.projectcontent')
-      .evaluate(function (){
-        var result = document.querySelector('#project').innerText
-        return result
-      })
+    if (next) return nightmare(opts)
+      .goto(next)
+      .wait('.title a')
+      .evaluate(query)
       .end()
-      .run(cbFn)
+      .run(nextPage)
+    collect(error, allUrls)
   }
 
-  function sendData (result) {
-    request
-      .post('https://scraping-a5a55.firebaseio.com/freelancermap.json')
-      .send({ description: result })
-      .set('Accept', 'application/json')
-      .end(function (err, res) {
-        // Calling the end function will send the request
-      })
+  function collect (error, urls) {
+    if (error) return done(error)
+    var DATA = []
+    var total = urls.length
+    if (urls.length) next(urls.pop(), callback)
+    function callback (error, data) {
+      if (error) return done(error)
+      if (data) DATA.push(data)
+      console.log(`${urls.length}/${total} - ${URL}`)
+      if (urls.length) next(urls.pop(), callback)
+      else done(null, { NAME, DATA })
+    }
   }
+
+}
+
+function next (url, cbFn) {
+  nightmare()
+  .goto(url)
+  .wait('.projectcontent')
+  .evaluate(query)
+  .end()
+  .run(cbFn)
+
+  function query (){
+    return document.querySelector('#project').innerText
+  }
+}
+
+function query () {
+  var urls = []
+  var nodeList = document.querySelectorAll('.title a')
+  ;(nodeList||[]).forEach(function (x) {
+    urls.push(x.href)
+  })
+  var array = document.querySelectorAll('.next')||[]
+  var next = (array[array.length - 1]||{}).href
+  return { urls, next } // same as `{ urls:urls, next:next }`
 }

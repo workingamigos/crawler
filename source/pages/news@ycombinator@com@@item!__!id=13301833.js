@@ -22,38 +22,35 @@ function execute (opts, done) {
 
 
 
-  function collect (error, urls) {
+  function collect (error, list) {
     if (error) return done(error)
     var DATA = []
-    var total = urls.length
-    if (urls.length) next(urls.pop(), callback)
+    var total = list.length
+    if (list.length) next(list.pop(), callback)
     function callback (error, data) {
       if (error) return done(error)
       if (data) DATA.push(data)
-      console.log(`${urls.length}/${total} - ${URL}`)
-      if (urls.length) next(urls.pop(), callback)
+      console.log(`${list.length}/${total} - ${URL}`)
+      if (list.length) next(list.pop(), callback)
       else done(null, { NAME, DATA })
     }
   }
 
 }
 
-function next (url, cbFn) {
-  nightmare()
-  .goto(url)
-  .wait('main .inner')
-  .evaluate(query)
-  .end()
-  .run(cbFn)
-
-  function query (){
-    return document.querySelector('main .inner').innerText
-  }
+function next (item, callback) {
+  meta({ item: {}, raw: item }, callback)
 }
 
 function query () {
-  var nodeList = document.querySelectorAll('.title a')
-  var urls = []
-  nodeList.forEach(function (x) { urls.push(x.href) })
-  return urls
+  var list = []
+  var nodeList = document.querySelectorAll('.default .comment')
+  nodeList.forEach(function (x){
+    var post = x.innerText||''
+    // if (post.includes('SEEKING FREELANCERS - REMOTE')) {
+    if (post.includes('SEEKING FREELANCER')) {
+      list.push(post)
+    }
+  })
+  return list
 }

@@ -3,16 +3,35 @@ crawl the web for remote work
 
 # usage
 
+1. encode `url` into `filename` by
+  * removing `http://` or `https://`
+  * changing all `.` into `@`
+  * changing all `/` into `@@`
+  * changing all `?` into `!__!`
+  * add `.js` at the end
+  * example: `http://example.com/foo/bar?baz=123`
+    * becomes `example@com@@foo@@bar!__1baz=123.js`
+2. save scraper under `./source/pages/${filename}`
+3. use `npm start [urlFragment]` to scrape
+  * `urlFragment` (not `filenameFragment`) is matched against all available url's
+  * every match found will be part of the SET of urls that will be scraped
+  * see `./source/pages` for all available urls by converting filenames
+  * according to above rules :-)
+
 ```bash
 npm start # scrapes all `./source/pages`
 # or
-npm start -- identifier
-# `identifier` needs to be part of the url you want to scrape
-# see `./source/pages` for all available urls
+npm start -- urlFragment1 urlFragment2 ...
+# or
+npm start urlFragment1 urlFragment2 ...
 ```
 
 # TODO
 * @TODO: try gigs
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
 
 # REMOTE Javascript
 
