@@ -1,3 +1,9 @@
+/******************************************************************************
+  http://frontenddeveloperjob.com/
+
+  @TODO:
+  https://twitter.com/frontenddevjob
+******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')

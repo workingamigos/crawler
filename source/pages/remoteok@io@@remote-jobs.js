@@ -1,3 +1,10 @@
+/******************************************************************************
+  https://remoteok.io/remote-jobs
+
+  @TODO:
+  https://remoteok.io/remote-web-dev-jobs
+  https://news.ycombinator.com/jobs
+******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')

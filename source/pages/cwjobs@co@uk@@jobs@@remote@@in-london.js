@@ -1,3 +1,9 @@
+/******************************************************************************
+  https://www.cwjobs.co.uk/jobs/remote/in-london
+
+  @TODO:
+  https://www.cwjobs.co.uk/jobs/javascript
+******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')
@@ -68,12 +74,8 @@ function next (url, cbFn) {
 function query () {
   var urls = []
   var nodeList = document.querySelectorAll('.job-title a')
-  ;(nodeList||[]).forEach(function (x) {
-    urls.push(x.href)
-  })
+  ;(nodeList||[]).forEach(function (x) { urls.push(x.href) })
   var array = document.querySelectorAll('.pagination li a')||[]
-  console.log("ARRAY " + array)
   var next = (array[array.length - 1]||{}).href
-  console.log("NEXT " + next)
   return { urls, next } // same as `{ urls:urls, next:next }`
 }

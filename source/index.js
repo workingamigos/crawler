@@ -12,7 +12,7 @@ startAll(getJobs(process.argv.splice(2)))
 function getJobs (abbreviations) {
 	if (abbreviations.length) return abbreviations.reduce((jobs, abbr) => {
 		var name = get.name(abbr)
-		return jobs.concat(alljobs.filter(j => ~j.name.indexOf(name)))
+		return jobs.concat(alljobs.filter(j => j.name.includes(name)))
 	},[]).filter(function(item, index, inputArray) {
     return inputArray.indexOf(item) === index
   })

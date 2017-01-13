@@ -1,3 +1,6 @@
+/******************************************************************************
+  http://jobs.smashingmagazine.com/freelance
+******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')

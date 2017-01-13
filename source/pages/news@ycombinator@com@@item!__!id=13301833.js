@@ -1,3 +1,9 @@
+/******************************************************************************
+  https://news.ycombinator.com/item?id=13301833
+
+  @TODO:
+  https://news.ycombinator.com/jobs
+******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')

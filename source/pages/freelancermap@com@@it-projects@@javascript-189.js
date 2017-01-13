@@ -1,3 +1,11 @@
+/******************************************************************************
+  http://www.freelancermap.com/it-projects/javascript-189
+
+  @TODO:
+  http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=javascript&profisuche=0&pq_sorttype=1&area=newpb&redirect=1
+  http://www.freelancermap.com/
+  https://twitter.com/freelancer_INT
+******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')
@@ -68,9 +76,7 @@ function next (url, cbFn) {
 function query () {
   var urls = []
   var nodeList = document.querySelectorAll('.title a')
-  ;(nodeList||[]).forEach(function (x) {
-    urls.push(x.href)
-  })
+  ;(nodeList||[]).forEach(function (x) { urls.push(x.href) })
   var array = document.querySelectorAll('.next')||[]
   var next = (array[array.length - 1]||{}).href
   return { urls, next } // same as `{ urls:urls, next:next }`
