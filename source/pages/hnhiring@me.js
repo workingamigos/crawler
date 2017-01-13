@@ -52,7 +52,7 @@ function query () {
   .from(document.querySelectorAll('#content > ul > li'))
   .filter(x => {
     var body = x.querySelector('.body')
-    if (body) return ~body.innerText.indexOf('SEEKING FREELANCER')
+    if (body) return body.innerText.includes('SEEKING FREELANCER')
   })
   .map(x => {
     var link = x.querySelector('.link a')

@@ -73,7 +73,7 @@ function query () {
       type: ss[3],
       length: ss.length
     }
-  }).filter(x=> x.length && ~x.type.toLowerCase().indexOf('remote')).map(x=>{
+  }).filter(x=> x.length && x.type.toLowerCase().includes('remote')).map(x=>{
     x.type = 'remote'
     delete x.length
     return x
