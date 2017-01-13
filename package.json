@@ -4,7 +4,7 @@
   "description": "crawl the web for remote javascript work",
   "main": "source/index.js",
   "scripts": {
-    "start": "benny-hill node source/index.js",
+    "start": "node source/index.js $ARG && benny-hill sleep 5",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

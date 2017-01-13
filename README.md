@@ -37,7 +37,7 @@ npm start urlFragment1 urlFragment2 ...
 
 ## Freelance gigs (and jobs)     
 
-* http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `ok` `javascript`
+http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `ok` `javascript`
   > scrapes from `indeed.com`
 
 http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `ok`
@@ -96,8 +96,6 @@ http://www.simplyhired.com/k-remote-web-developer-jobs.html `jobs` `freelance` `
 https://twitter.com/search?q=%23remotejob%20%23javascript&src=typd `jobs` `freelance` `remote` `ok` `javascript`
 
 https://twitter.com/remotees `jobs` `freelance` `remote` `ok` `javascript`
-
-https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript`
 
 http://hnhiring.me/ `freelance` `remote` `javascript` `ok`
 
