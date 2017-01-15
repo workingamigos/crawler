@@ -81,8 +81,6 @@ http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&l
 
 https://www.wfh.io/latest-remote-jobs `remote` `jobs` `freelance`
 
-https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript` `ok`
-
 https://www.peopleperhour.com/freelance-jobs?category=36&ref=categories `remote` `freelance` `ok` `javascript`
 
 https://www.upwork.com/o/jobs/browse/?q=javascript# `api` `remote` `jobs` `freelance` `ok` `javascript`
@@ -101,6 +99,7 @@ http://hnhiring.me/ `freelance` `remote` `javascript` `ok`
 
 http://jobs.smashingmagazine.com/freelance `freelance` `javascript` `ok` `remote`
 
+https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript` `ok`
 ---
 
 ### Jobs  
