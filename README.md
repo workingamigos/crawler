@@ -42,8 +42,6 @@ http://jsjobs.org/?q=remote&p=1 `remote` `freelance` `ok` `javascript`
 
 http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `ok`
 
-https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript` `ok`
-
 https://www.reddit.com/r/javascript_jobs/ `freelance` `remote` `ok` `javascript`
 
 https://news.ycombinator.com/item?id=13301833 `freelance` `remote` `javascript` `ok`
@@ -63,8 +61,6 @@ https://www.cwjobs.co.uk/jobs/remote/in-london `jobs` `remote` `freelance` `java
 http://www.careerbuilder.com/jobs-javascript-remote?keywords=javascript+remote&location= `remote` `freelance` `javascript` `ok`
 
 https://www.wfh.io/latest-remote-jobs `remote` `jobs` `freelance`
-
-https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `remote` `freelance` `jobs` `javascript` `ok`
 
 https://www.peopleperhour.com/freelance-jobs?category=36&ref=categories `remote` `freelance` `ok` `javascript`
 
@@ -104,8 +100,6 @@ https://jobmote.com/jobs/search?q=javascript `remote` `javascript` `jobs`
 ---   
 
 ## Not so much JavaScript
-
-http://www.indeed.com/l-Remote-jobs.html `jobs` `remote` `api`
 
 https://jobspresso.co/browsejobs/#s=1 `remote` `jobs`
 
@@ -180,8 +174,6 @@ https://www.jrdevjobs.com/jobs#query=remote&page=1 `jobs` `javascript` `remote` 
 ---   
 
 ## `remote` `jobs`
-
-http://www.indeed.com/l-Remote-jobs.html `jobs` `remote` `api`
 
 https://jobspresso.co/browsejobs/#s=1 `remote` `jobs`
 
@@ -262,6 +254,7 @@ https://www.dice.com/ `jobs` `freelance`
 
 https://twitter.com/StackDevJobs `jobs`
 
+https://www.monster.com/jobs/search/Part-Time_8?q=javascript-remote&kwdv=2193 `freelance` `jobs` `javascript` `ok`
 ---
 
 # Other (not jobs)
