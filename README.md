@@ -87,7 +87,7 @@ https://jobs.github.com/positions?description=JavaScript `remote` `jobs` `ok` `j
 
 https://www.reddit.com/r/remotejs/ `remote` `javascript` `ok`
 
-https://authenticjobs.com/#onlyremote=1 `remote` `jobs` `javascript`
+https://authenticjobs.com/#onlyremote=1 `remote` `jobs` `javascript` //working but not clicking LoadMore
 
 http://jobmote.com/  `remote` `jobs` `javascript` `ok`
 

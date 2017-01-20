@@ -21,7 +21,6 @@ function execute (opts, done) {
   .end()
   .run(collect)
 
-
   function collect (error, urls) {
     if (error) return done(error)
     var DATA = []

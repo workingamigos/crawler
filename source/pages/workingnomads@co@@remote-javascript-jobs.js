@@ -1,6 +1,3 @@
-/******************************************************************************
-  https://www.reddit.com/r/javascript_jobs/
-******************************************************************************/
 var nightmare = require('nightmare')
 
 var meta = require('_meta')
@@ -14,21 +11,24 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-
+  console.log("STARTING TO EXECUTE")
   nightmare(opts)
   .goto(`http://${URL}`)
+  .wait('.open-button.ng-binding')
   .evaluate(query)
   .end()
   .run(collect)
 
 
   function collect (error, urls) {
+    console.log("STARTING TO COLLECT")
     if (error) return done(error)
     var DATA = []
     var total = urls.length
-    //urls.pop deletes last element and returns it, this is then first argument in next(url,cbFn)
+    console.log("TOTAL IS " + total)
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
+      console.log(data)
       if (error) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
@@ -36,7 +36,6 @@ function execute (opts, done) {
       done(null, { NAME, DATA })
     }
   }
-
 }
 
 function next (url, cbFn) {
@@ -47,20 +46,15 @@ function next (url, cbFn) {
   .run(cbFn)
 
   function query () {
-    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText
+    return document.querySelector('.job-description').innerText||{}
   }
 }
 
 function query () {
   var urls = []
-  var nodeList = document.querySelectorAll('.thing .entry .title a')
+  var nodeList = document.querySelectorAll('.open-button.ng-binding')
   nodeList.forEach(function (x) {
     urls.push(x.href)
   })
-  urls = urls.reduce(function(total, currentVal, currentIndex, arr) {
-    // "https://www.reddit.com/r/javascript_jobs/".length
-    if (currentVal.length > 41) { total.push(currentVal) }
-    return total
-  }, [])
   return urls
 }

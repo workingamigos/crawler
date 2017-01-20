@@ -19,13 +19,12 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-
+  opts.show = true
   nightmare(opts)
   .goto(`http://${URL}`)
   .evaluate(query)
   .end()
   .run(nextPage)
-
 
 
   var allUrls = []
