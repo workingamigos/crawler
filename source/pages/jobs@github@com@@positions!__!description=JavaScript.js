@@ -25,20 +25,16 @@ function execute (opts, done) {
     allUrls = allUrls.concat(data.urls)
     console.log(`collected urls: ${allUrls.length}`)
     var next = data.next
-    console.log(next)
     if (next) return nightmare(opts)
       .goto(next)
       .wait('.title a')
       .evaluate(query)
       .end()
       .run(nextPage)
-    console.log("GOING TO COLLECT NOW")
     collect(error, allUrls)
   }
 
   function collect (error, urls) {
-    console.log("URLS")
-    console.log(urls)
     if (error) return done(error)
     var DATA = []
     var total = urls.length
@@ -60,11 +56,16 @@ function next (url, cbFn) {
   .wait('.main')
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query (){
     var text = document.querySelector('.main').innerText
     return text
+  }
+
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

@@ -11,7 +11,6 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-  opts.show = true
   nightmare(opts)
   .goto(`http://${URL}`)
   .wait('.ProjectTable-title')
@@ -70,12 +69,7 @@ function next (url, cbFn) {
   }
   function analyze (error, text) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, filter)
-  }
-  function filter (error, data) { // data = { item: {}, raw: text, meta: { pros: [], cons: [] } }
-    if (error) return done(error)
-    if (data.meta.cons.length) return cbFn()
-    cbFn(null, data)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

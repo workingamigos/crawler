@@ -43,10 +43,14 @@ function next (url, cbFn) {
   .goto(url)
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query () {
-    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText
+    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText||''
+  }
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text}, cbFn)
   }
 }
 

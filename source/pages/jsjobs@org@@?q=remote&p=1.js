@@ -25,19 +25,16 @@ function execute (opts, done) {
     allUrls = allUrls.concat(data.urls)
     console.log(`collected urls: ${allUrls.length}`)
     var next = data.next
-    console.log("NEXT IS " + next)
     if (next) return nightmare(opts)
       .goto(next)
       .wait('.job h6 a')
       .evaluate(query)
       .end()
       .run(nextPage)
-    console.log("GOING TO COLLECT NOW")
     collect(error, allUrls)
   }
 
   function collect (error, urls) {
-    console.log("START COLLECTING")
     if (error) return done(error)
     var DATA = []
     var total = urls.length
@@ -48,7 +45,6 @@ function execute (opts, done) {
       console.log(`${urls.length}/${total} - ${URL}`)
       if (urls.length) next(urls.pop(), callback)
       else {
-        console.log("I'M DONE")
         done(null, { NAME, DATA })
       }
     }

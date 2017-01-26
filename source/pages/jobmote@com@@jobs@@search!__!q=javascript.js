@@ -56,13 +56,17 @@ function next (url, cbFn) {
   .wait('.job-details')
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query (){
     var p1 = document.querySelector('.job-title').innerText
     var p2 = document.querySelector('.job-details').innerText
     var text = p1 + '\n' + p2
     return text
+  }
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

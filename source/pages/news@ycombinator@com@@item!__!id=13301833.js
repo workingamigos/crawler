@@ -24,10 +24,6 @@ function execute (opts, done) {
   .end()
   .run(collect)
 
-
-
-
-
   function collect (error, list) {
     if (error) return done(error)
     var DATA = []

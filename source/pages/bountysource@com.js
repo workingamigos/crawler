@@ -50,9 +50,9 @@ function query () {
   var nodeList = document.querySelectorAll('.bounty-description')
   ;(nodeList||[]).forEach(function (x){
     var post = x.innerText||''
-    // if (post.toLowerCase().includes('posted a')) {
+    if (post.toLowerCase().includes('posted a')) {
       posts.push(post)
-    // }
+    }
   })
   return posts
 }

@@ -1,5 +1,6 @@
 /******************************************************************************
-  https://www.reddit.com/r/javascript_jobs/
+  @TODO
+
 ******************************************************************************/
 var nightmare = require('nightmare')
 
@@ -14,7 +15,6 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-
   nightmare(opts)
   .goto(`http://${URL}`)
   .evaluate(query)
@@ -35,35 +35,29 @@ function execute (opts, done) {
       done(null, { NAME, DATA })
     }
   }
-
 }
-
 function next (url, cbFn) {
   nightmare()
   .goto(url)
+  .wait('.container .row div .outer')
   .evaluate(query)
   .end()
   .run(analyze)
 
   function query () {
-    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText||''
+    return (document.querySelector('.container .row div .outer')||{}).innerText
   }
   function analyze (error, text) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text}, cbFn)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 
 function query () {
   var urls = []
-  var nodeList = document.querySelectorAll('.thing .entry .title a')
+  var nodeList = document.querySelectorAll('.card-headline a')
   nodeList.forEach(function (x) {
     urls.push(x.href)
   })
-  urls = urls.reduce(function(total, currentVal, currentIndex, arr) {
-    // "https://www.reddit.com/r/javascript_jobs/".length
-    if (currentVal.length > 41) { total.push(currentVal) }
-    return total
-  }, [])
   return urls
 }

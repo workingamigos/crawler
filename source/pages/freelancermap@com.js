@@ -19,7 +19,6 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-  opts.show = true
   nightmare(opts)
   .goto(`http://${URL}`)
   .evaluate(query)
@@ -65,10 +64,14 @@ function next (url, cbFn) {
   .wait('.projectcontent')
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query (){
     return document.querySelector('#project').innerText
+  }
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

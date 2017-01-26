@@ -23,11 +23,6 @@ function execute (opts, done) {
   .end()
   .run(collect)
 
-
-
-
-
-
   function collect (error, result) {
     if (error) return done(error)
     var DATA = []
@@ -44,16 +39,16 @@ function execute (opts, done) {
 
 }
 
-function next (item, callback) {
+function next (item, cbFn) {
   nightmare()
   .goto(item.link)
   .evaluate(query)
   .end()
-  .run(collect)
+  .run(analyze)
   function query () { return document.body.innerText.toLowerCase() }
-  function collect (error, result) {
+  function analyze (error, result) {
     if (error) return done(error)
-    meta({ item, raw: result }, callback)
+    meta({ item, raw: result }, cbFn)
   }
 }
 

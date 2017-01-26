@@ -25,7 +25,6 @@ function execute (opts, done) {
     var total = urls.length
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
-      console.log(data)
       if (error) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
@@ -40,7 +39,7 @@ function next (url, cbFn) {
   .goto(url)
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query () {
     var p1 = (document.querySelector('.listing-header').innerText)||{}
@@ -48,11 +47,16 @@ function next (url, cbFn) {
     var text = p1 + '\n' + p2
     return text
   }
+
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
+  }
 }
 
 function query () {
   var urls = []
-  var nodeList = document.querySelectorAll('.feature a')
+  var nodeList = (document.querySelectorAll('.feature a'))||[]
   nodeList.forEach(function (x) {
     urls.push(x.href)
   })

@@ -17,6 +17,7 @@ function execute (opts, done) {
   opts = opts || { show: false }
   nightmare(opts)
   .goto(`http://${URL}`)
+  .wait('.position a')
   .evaluate(query)
   .end()
   .run(collect)
@@ -28,7 +29,6 @@ function execute (opts, done) {
     //urls.pop deletes last element and returns it, this is then first argument in next(url,cbFn)
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
-      console.log(data)
       if (error) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
@@ -36,36 +36,34 @@ function execute (opts, done) {
       done(null, { NAME, DATA })
     }
   }
-  function query () {
-    var urls = []
-    var nodeList = document.querySelectorAll('.position a')
-    nodeList.forEach(function (x) {
-      urls.push(x.href)
-    })
-    return urls
-  }
 }
+
 function next (url, cbFn) {
-  console.log("START NEXT")
-  console.log(url)
   nightmare()
-  .goto(url)
-  .evaluate(query)
-  .end()
-  .run(cbFn)
+    .goto(url)
+    .wait('.center h1')
+    .evaluate(query)
+    .end()
+    .run(analyze)
 
   function query () {
-    console.log("FIND TEXT")
-    return (document.querySelector('.single-text')||{}).innerText
+    var title = (document.querySelector('.center h1')||{}).innerText
+    var description = (document.querySelector('.single-text')||{}).innerText
+    var text = (title || '') + (description || '')
+    return text
   }
-  // function analyze (error, text) {
-  //   console.log("START ANALYZING")
-  //   if (error) return cbFn(error)
-  //   meta({ item: {}, raw: text }, filter)
-  // }
-  // function filter (error, data) { // data = { item: {}, raw: text, meta: { pros: [], cons: [] } }
-  //   if (error) return done(error)
-  //   if (data.meta.cons.length) return cbFn()
-  //   cbFn(null, data)
-  // }
+
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
+  }
+}
+
+function query () {
+  var urls = []
+  var nodeList = document.querySelectorAll('.position a')
+  nodeList.forEach(function (x) {
+    urls.push(x.href)
+  })
+  return urls
 }

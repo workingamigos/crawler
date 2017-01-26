@@ -38,10 +38,15 @@ function execute (opts, done) {
     .goto(url)
     .evaluate(query)
     .end()
-    .run(cbFn)
+    .run(analyze)
 
     function query () {
       return (document.querySelector('#content')||{}).innerText
+    }
+
+    function analyze (error, text) {
+      if (error) return cbFn(error)
+      meta({ item: {}, raw: text }, cbFn)
     }
   }
 

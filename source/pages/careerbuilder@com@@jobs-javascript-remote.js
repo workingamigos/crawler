@@ -61,7 +61,7 @@ function next (url, cbFn) {
   .wait('.card .item')
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query (){
     var nodes = document.querySelectorAll('.item')
@@ -70,6 +70,10 @@ function next (url, cbFn) {
       text = text + '\n' + x.innerText
     })
     return text
+  }
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

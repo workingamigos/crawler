@@ -21,13 +21,10 @@ function execute (opts, done) {
 
   nightmare(opts)
   .goto(`http://${URL}`)
+  .wait('.company_and_position a')
   .evaluate(query)
   .end()
   .run(collect)
-
-
-
-
 
   function collect (error, result) {
     if (error) return done(error)
@@ -45,22 +42,20 @@ function execute (opts, done) {
 
 }
 
-function next (item, cbFn) {
-  meta({ raw: item.title}, function (error, data) {
-    if (data) return nightmare()
-      .goto(item.url)
-      .wait('#jobsboard')
-      .evaluate(query)
-      .end()
-      .run(collect)
-    cbFn(null, null)
-  })
+function next (data, cbFn) {
+  if (data) return nightmare()
+    .goto(data.url)
+    .evaluate(query)
+    .end()
+    .run(analyze)
+
   function query () {
-    return document.querySelector('#jobsboard').innerText
+    return (document.querySelector('#jobsboard')||{}).innerText || ''
   }
-  function collect (error, result) {
-    if (error) return done(error)
-    meta({ item, raw: result }, cbFn)
+
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

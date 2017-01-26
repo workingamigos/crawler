@@ -50,10 +50,15 @@ function next (url, cbFn) {
   .wait('main .inner')
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
   function query (){
     return document.querySelector('main .inner').innerText
+  }
+
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 

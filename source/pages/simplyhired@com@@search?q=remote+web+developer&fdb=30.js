@@ -14,7 +14,6 @@ function execute (opts, done) {
   opts = opts || { show: false }
   nightmare(opts)
   .goto(`http://${URL}`)
-  .wait('.js-job-link')
   .evaluate(query)
   .end()
   .run(nextPage)
@@ -26,19 +25,16 @@ function execute (opts, done) {
     allUrls = allUrls.concat(data.urls)
     console.log(`collected urls: ${allUrls.length}`)
     var next = data.next
-    console.log(next)
     if (next) return nightmare(opts)
       .goto(next)
       .wait('.js-job-link')
       .evaluate(query)
       .end()
       .run(nextPage)
-    console.log("GOING TO COLLECT NOW")
     collect(error, allUrls)
   }
 
   function collect (error, urls) {
-    console.log("START COLLECTING")
     if (error) return done(error)
     var DATA = []
     var total = urls.length
@@ -83,12 +79,6 @@ function query () {
     urls.push(x.href)
   })
   var array = document.querySelectorAll('.search-pagination li a')||[]
-  var next
-  if (array[array.length - 1].getAttribute('class') === 'next-pagination') {
-    next = (array[array.length - 1]).href
-  } else {
-    console.log({}.href)
-    next = {}.href
-  }
+  var next = (document.querySelector('.next-pagination')||{}).href
   return { urls, next } // same as `{ urls:urls, next:next }`
 }

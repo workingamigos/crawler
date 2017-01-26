@@ -13,7 +13,6 @@ function execute (opts, done) {
   opts = opts || { show: false }
   nightmare(opts)
   .goto(`http://${URL}`)
-  .wait('.list_job_title a')
   .evaluate(query)
   .end()
   .run(nextPage)
@@ -32,12 +31,10 @@ function execute (opts, done) {
       .evaluate(query)
       .end()
       .run(nextPage)
-    console.log("GOING TO COLLECT NOW")
     collect(error, allUrls)
   }
 
   function collect (error, urls) {
-    console.log("START COLLECTING")
     if (error) return done(error)
     var DATA = []
     var total = urls.length
@@ -59,13 +56,12 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('.main_column_job_details')
   .evaluate(query)
   .end()
   .run(analyze)
 
   function query (){
-    return document.querySelector('.main_column_job_details').innerText
+    return (document.querySelector('.main_column_job_details')||{}).innerText || ''
   }
   function analyze (error, text) {
     if (error) return cbFn(error)
@@ -75,13 +71,10 @@ function next (url, cbFn) {
 
 function query () {
   var urls = []
-  console.log("URLS " + urls)
-  var nodeList = document.querySelectorAll('.list_job_title a')
-  console.log("NODE lIST " + nodeList)
+  var nodeList = (document.querySelectorAll('.list_job_title a'))||[]
   ;(nodeList||[]).forEach(function (x) {
     urls.push(x.href)
   })
-  console.log("URLS " + urls)
   var array = document.querySelectorAll('.pagination a')||[]
   var next
   if (array[array.length - 2].getAttribute('rel') === 'next') {

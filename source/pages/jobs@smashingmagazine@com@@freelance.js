@@ -21,10 +21,6 @@ function execute (opts, done) {
   .end()
   .run(collect)
 
-
-
-
-
   function collect (error, result) {
     if (error) return done(error)
     var DATA = []
@@ -47,11 +43,12 @@ function next (item, cbFn) {
   .wait('.job-entry')
   .evaluate(query)
   .end()
-  .run(collect)
+  .run(analyze)
+  
   function query (){
     return document.querySelector('.job-entry').innerText
   }
-  function collect (error, result) {
+  function analyze (error, result) {
     if (error) return done(error)
     meta({ item, raw: result }, cbFn)
   }

@@ -91,11 +91,9 @@ https://authenticjobs.com/#onlyremote=1 `remote` `jobs` `javascript` //working b
 
 http://jobmote.com/  `remote` `jobs` `javascript` `ok`
 
-https://whoishiring.io/search/45.164/-101.030/2/?search=javascript&remote=true&location=remote `remote` `jobs` `ok` `javascript`
+https://whoishiring.io/search/45.164/-101.030/2/?search=javascript&remote=true&location=remote `remote` `jobs` `ok` `javascript` //need to overwrite with window.open
 
 https://www.jrdevjobs.com/jobs#query=remote&page=1 `jobs` `javascript` `remote` `ok` `junior`
-
-https://jobmote.com/jobs/search?q=javascript `remote` `javascript` `jobs`
 
 ---   
 

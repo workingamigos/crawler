@@ -2,6 +2,7 @@
   https://www.cwjobs.co.uk/jobs/remote/in-london
 
   @TODO:
+  ERROR, doesn't finish crawling! Can't debug
   https://www.cwjobs.co.uk/jobs/javascript
 ******************************************************************************/
 var nightmare = require('nightmare')
@@ -20,6 +21,7 @@ function execute (opts, done) {
 
   nightmare(opts)
   .goto(`http://${URL}`)
+  .wait('.pagination li a')
   .evaluate(query)
   .end()
   .run(nextPage)
@@ -46,6 +48,7 @@ function execute (opts, done) {
     if (error) return done(error)
     var DATA = []
     var total = urls.length
+    console.log("URLS " + urls.length)
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
       if (error) return done(error)
@@ -59,9 +62,9 @@ function execute (opts, done) {
 }
 
 function next (url, cbFn) {
+  console.log('URL IS ' + url)
   nightmare()
   .goto(url)
-  .wait('.job-content-top')
   .evaluate(query)
   .end()
   .run(cbFn)
@@ -76,6 +79,11 @@ function query () {
   var nodeList = document.querySelectorAll('.job-title a')
   ;(nodeList||[]).forEach(function (x) { urls.push(x.href) })
   var array = document.querySelectorAll('.pagination li a')||[]
-  var next = (array[array.length - 1]||{}).href
+  var next
+  if (array[array.length - 1].getAttribute('class') !== 'btn btn-default next disabled') {
+    next = (array[array.length - 1]).href
+  } else {
+    next = {}.href
+  }
   return { urls, next } // same as `{ urls:urls, next:next }`
 }

@@ -11,24 +11,19 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-  console.log("STARTING TO EXECUTE")
   nightmare(opts)
-  .goto(`http://${URL}`)
-  .wait('.open-button.ng-binding')
-  .evaluate(query)
-  .end()
-  .run(collect)
-
+    .goto(`http://${URL}`)
+    .wait('.open-button.ng-binding')
+    .evaluate(query)
+    .end()
+    .run(collect)
 
   function collect (error, urls) {
-    console.log("STARTING TO COLLECT")
     if (error) return done(error)
     var DATA = []
     var total = urls.length
-    console.log("TOTAL IS " + total)
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
-      console.log(data)
       if (error) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
@@ -39,20 +34,28 @@ function execute (opts, done) {
 }
 
 function next (url, cbFn) {
+  console.log(url)
   nightmare()
-  .goto(url)
-  .evaluate(query)
-  .end()
-  .run(cbFn)
+    .goto(url)
+    .wait('.job-description')
+    .evaluate(query)
+    .end()
+    .run(analyze)
 
   function query () {
-    return document.querySelector('.job-description').innerText||{}
+    var text = (document.querySelector('.job-description')||{}).innerText
+    return text
+  }
+  function analyze (error, text) {
+    console.log(text)
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 
 function query () {
   var urls = []
-  var nodeList = document.querySelectorAll('.open-button.ng-binding')
+  var nodeList = (document.querySelectorAll('.open-button.ng-binding'))||[]
   nodeList.forEach(function (x) {
     urls.push(x.href)
   })

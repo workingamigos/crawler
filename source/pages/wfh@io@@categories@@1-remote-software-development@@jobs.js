@@ -18,8 +18,6 @@ function execute (opts, done) {
   .end()
   .run(nextPage)
 
-
-
   var allUrls = []
 
   function nextPage (error, data) { //because of .run, we need 2 arguments: err & result
@@ -54,31 +52,28 @@ function execute (opts, done) {
 
 function next (url, cbFn) {
   nightmare()
-  .goto(url)
-  .wait('.panel-body')
-  .evaluate(query)
-  .end()
-  .run(cbFn)
+    .goto(url)
+    .evaluate(query)
+    .end()
+    .run(analyze)
 
   function query (){
-    var nodes = document.querySelectorAll('.panel-body dd p')
-    var text = ''
-    nodes.forEach (function (x) {
-      text = text + '\n' + x.innerText
-    })
+    var text = (document.querySelectorAll('.panel-body')[2]||{}).innerText||''
     return text
+  }
+  function analyze (error, text) {
+    if (error) return cbFn(error)
+    meta({ item: {}, raw: text }, cbFn)
   }
 }
 
 function query () {
   var urls = []
-  var nodeList = document.querySelectorAll('.table td a')
+  var nodeList = (document.querySelectorAll('.table td a'))||[]
   ;(nodeList||[]).forEach(function (x) {
     urls.push(x.href)
   })
   var array = document.querySelectorAll('.next a')||[]
-  console.log("ARRAY " + array)
   var next = (array[array.length - 1]||{}).href
-  console.log("NEXT " + next)
   return { urls, next } // same as `{ urls:urls, next:next }`
 }
