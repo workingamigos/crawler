@@ -46,7 +46,7 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query () {
-    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText||''
+    return document.body.innerText||''
   }
   function analyze (error, text) {
     if (error) return cbFn(error)

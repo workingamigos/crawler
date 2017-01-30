@@ -59,13 +59,16 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('.Grid-col')
+  .wait('.project-view-inner')
   .evaluate(query)
   .end()
   .run(analyze)
 
   function query (){
-    return document.querySelector('.Grid-col').innerText
+    var title = document.querySelector('.project-view-project-title').innerText
+    var body = document.querySelector('.project-view-inner .Grid').innerText
+    var text = title + '\n' + body
+    return text
   }
   function analyze (error, text) {
     if (error) return cbFn(error)

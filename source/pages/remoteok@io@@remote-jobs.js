@@ -50,7 +50,7 @@ function next (data, cbFn) {
     .run(analyze)
 
   function query () {
-    return (document.querySelector('#jobsboard')||{}).innerText || ''
+    return (document.querySelector('.expandContents .description')||{}).innerText || ''
   }
 
   function analyze (error, text) {

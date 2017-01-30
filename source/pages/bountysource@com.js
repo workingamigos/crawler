@@ -23,8 +23,6 @@ function execute (opts, done) {
   .run(collect)
 
 
-
-
   function collect (error, result) {
     if (error) return done(error)
     var DATA = []
