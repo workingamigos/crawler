@@ -66,12 +66,26 @@ function next (url, cbFn) {
   .end()
   .run(analyze)
 
-  function query (){
-    return document.querySelector('#project').innerText
+  function query () {
+    return {
+      date: null,
+      skills: (document.querySelector('#project .project-categories')||{}).innerText,
+      requirements: null,
+      title: (document.querySelector('#project .headline-lightblue')||{}).innerText,
+      type: (document.querySelectorAll('#project .project-details .project-detail-description')[0]||{}).innerText,
+      payment: null, // fixed / per hour
+      duration: (document.querySelectorAll('#project .project-details .project-detail-description')[2]||{}).innerText,
+      budget: null,
+      description: ((document.querySelector('.projectcontent')||{}).innerText||'').split(" Apply now")[1]
+      details: null,
+      company: null,
+      location: (document.querySelectorAll('#project .project-details .project-detail-description')[4]||{}).innerText,
+      benefits: null
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

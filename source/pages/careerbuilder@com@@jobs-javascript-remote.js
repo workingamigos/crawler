@@ -64,16 +64,31 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query (){
-    var nodes = document.querySelectorAll('.item')
-    var text = ''
-    nodes.forEach (function (x) {
-      text = text + '\n' + x.innerText
-    })
-    return text
+    return {
+      date: (document.querySelector('.main #job-begin-date')||{}).innerText,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.main h1')||{}).innerText,
+      type: (document.querySelectorAll('.job-facts .tag')[0]||{}).innerText,
+      payment: null, // fixed / per hour
+      duration: null,
+      budget: [...document.querySelectorAll('.job-facts .tag')]
+        .map(element => {
+          if (element && element.innerText) {
+            return element.innerText.includes('$') ? element.innerText : null
+          }
+          return null
+        }),
+      description: (document.querySelector('.main .description')||{}).innerText,
+      details: null,
+      company: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[0],
+      location: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[1],
+      benefits: null
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

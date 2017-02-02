@@ -41,6 +41,7 @@ function execute (opts, done) {
       .evaluate(query)
       .end()
       .run(nextPage)
+
     collect(error, allUrls)
   }
 
@@ -67,10 +68,28 @@ function next (url, cbFn) {
   .goto(url)
   .evaluate(query)
   .end()
-  .run(cbFn)
+  .run(analyze)
 
-  function query (){
-    return document.querySelector('.job-content-top').innerText
+  function query () {
+    return {
+      date: (document.querySelector('.job-content .date-posted')||{}).innerText,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.job-content h1')||{}).innerText,
+      type: (document.querySelector('.job-content .job-type')||{}).innerText,
+      payment: null, // fixed / per hour
+      duration: null,
+      budget: (document.querySelector('.location-salary .salary')||{}).innerText,
+      description: document.querySelector('.job-description')||{}).innerText,
+      details: null,
+      company: (document.querySelector('.job-content .company')||{}).innerText,
+      location: (document.querySelector('.location-salary .location')||{}).innerText,
+      benefits: null
+    }
+  }
+  function analyze (error, item) {
+    if (error) return cbFn(error)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

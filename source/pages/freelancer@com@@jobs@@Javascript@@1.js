@@ -64,15 +64,26 @@ function next (url, cbFn) {
   .end()
   .run(analyze)
 
-  function query (){
-    var title = document.querySelector('.project-view-project-title').innerText
-    var body = document.querySelector('.project-view-inner .Grid').innerText
-    var text = title + '\n' + body
-    return text
+  function query () {
+    return {
+      date: null,
+      skills: (document.querySelector('.project-view-landing-required-skill')||{}).innerText,
+      requirements: null,
+      title: null,
+      type: null, // job / freelance
+      payment: null, // fixed / per hour
+      duration: null,
+      budget: (document.querySelector('.project-statistic-value')||{}).innerText,
+      description: (document.querySelector('.project-description')||{}).innerText,
+      details: null,
+      company: null,
+      location: null,
+      benefits: null
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

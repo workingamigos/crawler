@@ -39,18 +39,40 @@ function execute (opts, done) {
 
 }
 
-function next (text, callback) {
-  meta({ item: {}, raw: text }, callback)
+function next (item, callback) {
+  meta({ item, raw: item.description }, callback)
 }
 
 function query () {
-  var posts = []
-  var nodeList = document.querySelectorAll('.bounty-description')
-  ;(nodeList||[]).forEach(function (x){
-    var post = x.innerText||''
-    if (post.toLowerCase().includes('posted a')) {
-      posts.push(post)
-    }
-  })
-  return posts
+  return {
+    date: [...document.querySelectorAll('.secondary-text')]
+      .map(element => {
+        if (element && element.innerText) {
+          var arr = element.innerText.split(' ')
+          if (arr.includes('Featured')) arr.pop()
+          while (arr.length > 3) { arr.shift() }
+          return arr.join(' ')
+        }
+        return null
+      }),
+    skills: null,
+    requirements: null,
+    title: null,
+    type: null, // job / freelance
+    payment: null, // fixed / per hour
+    duration: null,
+    budget: ((document.querySelectorAll('.bounty-description')[0]||{}).innerText.split('bounty')[0]||'').split('a')[1],
+    description: ((document.querySelectorAll('.bounty-description')[0]||{}).innerText||'').split('bounty')[1],
+    details: null,
+    company: [...document.querySelectorAll('.bounty-description')]
+      .map(element => {
+        if (element && element.innerText) {
+          var arr = element.innerText.split(' ')
+          arr.shift()
+          return arr.join('')
+        }
+      }),
+    location: null,
+    benefits: null
+  }
 }

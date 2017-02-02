@@ -1,6 +1,7 @@
 var bulk = require('bulk-require')
 var get = require('_get')
 var send = require('_send')
+var spec = require('_specification')
 
 var pages = bulk(__dirname, ['pages/**/*.js']).pages
 var alljobs = Object.keys(pages).map(name => ({ fn: pages[name], name: name }))
@@ -30,15 +31,17 @@ function execute (job, next) {
 	job.fn(opts, callback)
 	function callback (error, result) {
 		if (error) return console.error(error)
-		var data = result.DATA
-		var name = result.NAME
-		if (name && data) send(name, data, function (err, res) {
-			if (err) return console.error(errmsg,err)
-			console.log(`----------`)
-			console.log(`[${res.status}] ${get.url(name)}`)
-			console.log('=> '+res.text)
-			console.log(`----------`)
-			next()
+		spec(result.DATA, function (error, data) {
+			if (error) console.error(error)
+			var name = result.NAME
+			if (name && data) send(name, data, function (err, res) {
+				if (err) return console.error(errmsg,err)
+				console.log(`----------`)
+				console.log(`[${res.status}] ${get.url(name)}`)
+				console.log('=> '+res.text)
+				console.log(`----------`)
+				next()
+			})
 		})
 	}
 }

@@ -41,12 +41,31 @@ function execute (opts, done) {
     .run(analyze)
 
     function query () {
-      return (document.querySelector('#content')||{}).innerText
+      return {
+        date: (document.querySelector('#the_listing .description #posted')||{}).innerText,
+        skills: null,
+        requirements: null,
+        title: (document.querySelector('.row-content .column h1')||{}).innerText,
+        type: (document.querySelectorAll('.details li')[0]||{}).innerText,
+        payment: null, // fixed / per hour
+        duration: null,
+        budget: null,
+        description: [...(document.querySelectorAll('#the_listing .description p')||{})]
+          .map(element => {
+            if (element && element.innerText) return '\n' + element.innerText
+            return null
+          }),
+        details: (document.querySelector('#the_listing .description')||{}).innerText,
+        company: (document.querySelector('#the_company .headings h1')||{}).innerText,
+        location: (document.querySelectorAll('.details li')[1]||{}).innerText,
+        benefits: null,
+        application: (document.querySelector('#the_company #company_extras #company_links a')||{}).href
+      }
     }
 
-    function analyze (error, text) {
+    function analyze (error, item) {
       if (error) return cbFn(error)
-      meta({ item: {}, raw: text }, cbFn)
+      meta({ item, raw: item.description }, cbFn)
     }
   }
 
