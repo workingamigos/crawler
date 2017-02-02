@@ -5,7 +5,7 @@
   "main": "source/index.js",
   "scripts": {
     "start": "benny-hill-x node source/index.js",
-    "crawler": "benny-hill-x node source/crawler.js",
+    "crawler": "benny-hill-x electron source/crawler.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
