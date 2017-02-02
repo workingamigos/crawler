@@ -32,7 +32,7 @@ function execute (job, next) {
 		if (error) return console.error(error)
 		var data = result.DATA
 		var name = result.NAME
-		send(name, data, function (err, res) {
+		if (name && data) send(name, data, function (err, res) {
 			if (err) return console.error(errmsg,err)
 			console.log(`----------`)
 			console.log(`[${res.status}] ${get.url(name)}`)
