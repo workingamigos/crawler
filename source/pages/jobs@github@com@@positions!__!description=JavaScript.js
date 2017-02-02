@@ -53,13 +53,16 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('.main')
+  .wait('.inner')
   .evaluate(query)
   .end()
   .run(analyze)
 
   function query (){
-    var text = document.querySelector('.main').innerText
+    var supertitle = (document.querySelector('.inner .supertitle')||{}).innerText||''
+    var title = (document.querySelector('.inner h1')||{}).innerText||''
+    var body = (document.querySelector('.inner .main')||{}).innerText||''
+    var text = supertitle + '\n' + title + '\n' + body
     return text
   }
 

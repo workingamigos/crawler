@@ -95,6 +95,9 @@ https://whoishiring.io/search/45.164/-101.030/2/?search=javascript&remote=true&l
 
 https://www.jrdevjobs.com/jobs#query=remote&page=1 `jobs` `javascript` `remote` `ok` `junior`
 
+#TODO
+https://outsource.com
+https://www.flexjobs.com/jobs/web-software-development-programming
 ---   
 
 ## Not so much JavaScript
