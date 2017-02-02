@@ -32,10 +32,10 @@ function execute (job, next) {
 	function callback (error, result) {
 		if (error) return console.error(error)
 		spec(result.DATA, function (error, data) {
-			if (error) console.error(error)
+			if (error) console.error(errmsg,error, error.stack)
 			var name = result.NAME
 			if (name && data) send(name, data, function (err, res) {
-				if (err) return console.error(errmsg,err)
+				if (err) return console.error(errmsg,err,err.stack)
 				console.log(`----------`)
 				console.log(`[${res.status}] ${get.url(name)}`)
 				console.log('=> '+res.text)

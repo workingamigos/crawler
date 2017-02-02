@@ -80,7 +80,7 @@ function next (url, cbFn) {
       payment: null, // fixed / per hour
       duration: null,
       budget: (document.querySelector('.location-salary .salary')||{}).innerText,
-      description: document.querySelector('.job-description')||{}).innerText,
+      description: (document.querySelector('.job-description')||{}).innerText,
       details: null,
       company: (document.querySelector('.job-content .company')||{}).innerText,
       location: (document.querySelector('.location-salary .location')||{}).innerText,

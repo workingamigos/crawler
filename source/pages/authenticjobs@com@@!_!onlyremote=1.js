@@ -52,9 +52,9 @@ function execute (opts, done) {
         budget: null,
         description: [...(document.querySelectorAll('#the_listing .description p')||{})]
           .map(element => {
-            if (element && element.innerText) return '\n' + element.innerText
+            if (element && element.innerText) return element.innerText
             return null
-          }),
+          }).join('\n'),
         details: (document.querySelector('#the_listing .description')||{}).innerText,
         company: (document.querySelector('#the_company .headings h1')||{}).innerText,
         location: (document.querySelectorAll('.details li')[1]||{}).innerText,

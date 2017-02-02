@@ -76,7 +76,7 @@ function next (url, cbFn) {
       payment: null, // fixed / per hour
       duration: (document.querySelectorAll('#project .project-details .project-detail-description')[2]||{}).innerText,
       budget: null,
-      description: ((document.querySelector('.projectcontent')||{}).innerText||'').split(" Apply now")[1]
+      description: ((document.querySelector('.projectcontent')||{}).innerText||'').split(" Apply now")[1],
       details: null,
       company: null,
       location: (document.querySelectorAll('#project .project-details .project-detail-description')[4]||{}).innerText,
