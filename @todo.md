@@ -109,4 +109,40 @@ company:
 location:
 benefits:
 
+//////////////////////////////////////////////////////////////////////////////
+
+SMASHING - http://jobs.smashingmagazine.com/freelance
+
+date: document.querySelector('.job-entry .date').innerText
+skills:
+requirements:
+title: document.querySelector('.job-entry h2').innerText
+type: document.querySelector('.job-entry .tags').innerText
+payment: fixed / per hour
+duration:
+budget:
+description:
+details:
+company: document.querySelector('.job-entry .author').innerText.split('(')[0]
+location:
+benefits:
+
+//////////////////////////////////////////////////////////////////////////////
+
+JRDEVJOBS - https://www.jrdevjobs.com/jobs#query=remote&page=1
+
+date: document.querySelector('.container .date').innerText
+skills: document.querySelectorAll('.container .job-badge-wrapper .badge')[2].innerText
+requirements: document.querySelectorAll('.container .job-badge-wrapper .badge')[3].innerText
+title: document.querySelector('.job-header .job-position').innerText
+type: document.querySelectorAll('.container .job-badge-wrapper .badge')[1].innerText
+payment: fixed / per hour
+duration:
+budget:
+description:
+details:
+company: document.querySelector('.job-header .job-company').innerText
+location: document.querySelectorAll('.container .job-badge-wrapper .badge')[0].innerText
+benefits:
+
 ```
