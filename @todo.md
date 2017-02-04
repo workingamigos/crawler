@@ -95,6 +95,7 @@ benefits:
 
 REMOTIVE -
 
+// PROBLEM: links out to other pages
 date:
 skills:
 requirements:
@@ -211,6 +212,8 @@ benefits:
 
 REDDIT
 
+// PROBLEM: links out to other pages
+
 date:
 skills:
 requirements:
@@ -258,6 +261,103 @@ budget:
 description: document.querySelector('.description p').innerText
 details:
 company: document.querySelector('.company_and_position').innerText.split('\n')[1]
+location:
+benefits:
+
+//////////////////////////////////////////////////////////////////////////////
+
+REMOTE WORK HUB - https://remoteworkhub.com/results/?category=software-application-development&type=&location=anywhere-worldwide
+
+date: document.querySelector('.devided_section').innerText.split('POSTED:')[1].split('LOCATION')[0]
+skills:
+/*
+var nodes = document.querySelectorAll('.job-categories-list li')
+var skills = []
+nodes.forEach(function (li) {
+  skills.push(li.innerText)
+})
+return skills
+*/
+requirements:
+title: document.querySelector('.main_title').innerText
+type: document.querySelector('.job-type').innerText
+payment: fixed / per hour
+duration:
+budget:
+description: document.querySelector('.job_summary').innerText
+details:
+company:
+location:
+benefits:
+//////////////////////////////////////////////////////////////////////////////
+
+SIMPLY HIRED - http://www.simplyhired.com/search?q=remote+web+developer&fdb=30
+
+// PROBLEM: links out to other pages
+
+date:
+skills:
+requirements:
+title:
+type: job / freelance
+payment: fixed / per hour
+duration:
+budget:
+description:
+details:
+company:
+location:
+benefits:
+//////////////////////////////////////////////////////////////////////////////
+
+WE WORK REMOTELY - https://weworkremotely.com/categories/2-programming/jobs#intro
+
+date: document.querySelector('.listing-header h3').innerText
+skills:
+requirements:
+title: document.querySelector('.listing-header h1').innerText
+type: job / freelance
+payment: fixed / per hour
+duration:
+budget:
+description: document.querySelector('.listing-container').innerText
+details:
+company: document.querySelector('.listing-header h2').innerText.split('\n')[0]
+location:
+benefits:
+//////////////////////////////////////////////////////////////////////////////
+
+WFH  - https://www.wfh.io/categories/1-remote-software-development/jobs
+
+date: document.querySelectorAll('.panel-body')[2].innerText.split('Posted')[1].split('Description')[0]
+skills:
+requirements:
+title: document.querySelector('.page-header h1').innerText.split('@')[0]
+type: job / freelance
+payment: fixed / per hour
+duration:
+budget:
+description: document.querySelectorAll('.panel-body')[2].innerText.split('Description')[1]
+details:
+company: document.querySelector('.page-header h1').innerText.split('@')[1]
+location:
+benefits:
+
+//////////////////////////////////////////////////////////////////////////////
+
+WORKING NOMADS - https://www.workingnomads.co/remote-javascript-jobs
+
+date: document.querySelector('.job-apply').innerText
+skills: document.querySelector('.parameters').innerText.split('\n')[1].split('Tags:')[1]
+requirements:
+title: document.querySelector('.container h3').innerText
+type: job / freelance
+payment: fixed / per hour
+duration:
+budget:
+description: document.querySelector('.job-description').innerText
+details:
+company: document.querySelector('.parameters').innerText.split('\n')[0]
 location:
 benefits:
 
