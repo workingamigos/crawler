@@ -43,12 +43,12 @@ function execute (opts, done) {
     if (error) return done(error)
     var DATA = []
     var total = urls.length
-    if (urls.length) next(urls.pop(), callback)
+    if (urls.length) next(urls.shift(), callback)
     function callback (error, data) {
       if (error) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
-      if (urls.length) next(urls.pop(), callback)
+      if (urls.length) next(urls.shift(), callback)
       else done(null, { NAME, DATA })
     }
   }
@@ -65,11 +65,11 @@ function next (url, cbFn) {
 
   function query (){
     return {
-      date: (document.querySelector('.main #job-begin-date')||{}).innerText,
+      date: (document.querySelector('.main #job-begin-date')||{}).innerText||null,
       skills: null,
       requirements: null,
-      title: (document.querySelector('.main h1')||{}).innerText,
-      type: (document.querySelectorAll('.job-facts .tag')[0]||{}).innerText,
+      title: (document.querySelector('.main h1')||{}).innerText||null,
+      type: (document.querySelectorAll('.job-facts .tag')[0]||{}).innerText||null,
       payment: null, // fixed / per hour
       duration: null,
       budget: [...document.querySelectorAll('.job-facts .tag')]
@@ -79,10 +79,10 @@ function next (url, cbFn) {
           }
           return null
         }),
-      description: (document.querySelector('.main .description')||{}).innerText,
+      description: (document.querySelector('.main .description')||{}).innerText||null,
       details: null,
-      company: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[0],
-      location: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[1],
+      company: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[0]||null,
+      location: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[1]||null,
       benefits: null
     }
   }

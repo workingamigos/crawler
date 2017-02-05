@@ -23,12 +23,12 @@ function execute (opts, done) {
     if (error) return done(error)
     var total = urls.length
     var DATA = []
-    if (urls.length) next(urls.pop(), callback)
+    if (urls.length) next(urls.shift(), callback)
     function callback (error, data) {
       if (error) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
-      if (urls.length) return next(urls.pop(), callback)
+      if (urls.length) return next(urls.shift(), callback)
       done(null, { NAME, DATA })
     }
   }
@@ -42,11 +42,11 @@ function execute (opts, done) {
 
     function query () {
       return {
-        date: (document.querySelector('#the_listing .description #posted')||{}).innerText,
+        date: (document.querySelector('#the_listing .description #posted')||{}).innerText||null,
         skills: null,
         requirements: null,
-        title: (document.querySelector('.row-content .column h1')||{}).innerText,
-        type: (document.querySelectorAll('.details li')[0]||{}).innerText,
+        title: (document.querySelector('.row-content .column h1')||{}).innerText||null,
+        type: (document.querySelectorAll('.details li')[0]||{}).innerText||null,
         payment: null, // fixed / per hour
         duration: null,
         budget: null,
@@ -55,11 +55,11 @@ function execute (opts, done) {
             if (element && element.innerText) return element.innerText
             return null
           }).join('\n'),
-        details: (document.querySelector('#the_listing .description')||{}).innerText,
-        company: (document.querySelector('#the_company .headings h1')||{}).innerText,
-        location: (document.querySelectorAll('.details li')[1]||{}).innerText,
+        details: (document.querySelector('#the_listing .description')||{}).innerText||null,
+        company: (document.querySelector('#the_company .headings h1')||{}).innerText||null,
+        location: (document.querySelectorAll('.details li')[1]||{}).innerText||null,
         benefits: null,
-        application: (document.querySelector('#the_company #company_extras #company_links a')||{}).href
+        application: (document.querySelector('#the_company #company_extras #company_links a')||{}).href||null
       }
     }
 
