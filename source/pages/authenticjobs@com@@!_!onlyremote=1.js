@@ -1,6 +1,13 @@
+/******************************************************************************
+  https://authenticjobs.com/#onlyremote=1
+
+  * https://shortbios.io/
+  * https://perks.io/
+
+  // @TODO: needs to click multiple times  '#more a' before `evaluate()`
+******************************************************************************/
 var nightmare = require('nightmare')
 
-var meta = require('_meta')
 var get = require('_get')
 
 var URL = get.url(__filename)
@@ -11,9 +18,10 @@ module.exports = execute
 function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
-  console.log("START")
+
   nightmare(opts)
   .goto(`http://${URL}`)
+  .wait('#more a')
   .click('#more a')
   .evaluate(query)
   .end()
@@ -34,11 +42,13 @@ function execute (opts, done) {
   }
 
   function next (url, cbFn) {
+    if (!url) return cbFn()
+
     nightmare()
     .goto(url)
     .evaluate(query)
     .end()
-    .run(analyze)
+    .run(cbFn)
 
     function query () {
       return {
@@ -64,10 +74,6 @@ function execute (opts, done) {
       }
     }
 
-    function analyze (error, item) {
-      if (error) return cbFn(error)
-      meta({ item, raw: item.description }, cbFn)
-    }
   }
 
 }

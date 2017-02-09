@@ -1,6 +1,9 @@
+/******************************************************************************
+  https://careerbuilder.com/jobs-javascript-remote
+
+******************************************************************************/
 var nightmare = require('nightmare')
 
-var meta = require('_meta')
 var get = require('_get')
 
 var URL = get.url(__filename)
@@ -18,11 +21,10 @@ function execute (opts, done) {
   .end()
   .run(nextPage)
 
-
-
   var allUrls = []
 
-  function nextPage (error, data) { //because of .run, we need 2 arguments: err & result
+  //because of .run, we need 2 arguments: err & result
+  function nextPage (error, data) {
     if (error) return done(error)
     allUrls = allUrls.concat(data.urls)
     console.log(`collected urls: ${allUrls.length}`)
@@ -61,7 +63,7 @@ function next (url, cbFn) {
   .wait('.card .item')
   .evaluate(query)
   .end()
-  .run(analyze)
+  .run(cbFn)
 
   function query (){
     return {
@@ -87,10 +89,7 @@ function next (url, cbFn) {
       url: location.href
     }
   }
-  function analyze (error, item) {
-    if (error) return cbFn(error)
-    meta({ item, raw: item.description }, cbFn)
-  }
+
 }
 
 function query () {
