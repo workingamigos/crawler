@@ -27,7 +27,6 @@ function execute (opts, done) {
     var next = data.next
     if (next) return nightmare(opts)
       .goto(next)
-      .wait('.js-job-link')
       .evaluate(query)
       .end()
       .run(nextPage)
@@ -40,7 +39,8 @@ function execute (opts, done) {
     var total = urls.length
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
-      if (error) return done(error)
+      if (typeof error === 'string') error = JSON.parse(error)
+      if (error && (error.details != 'ERR_CONNECTION_RESET') && (error.details != 'ERR_NETWORK_CHANGED') && (error.message != 'navigation error')) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
       if (urls.length) {
@@ -57,18 +57,32 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('body')
+  //.wait('body')
   .evaluate(query)
   .end()
   .run(analyze)
 
   function query (){
-    var text = document.querySelector('body').innerText
-    return text
+    return {
+      date: null,
+      skills: null,
+      requirements: null,
+      title: null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: ((document.querySelector('body')||{}).innerText||'')||'',
+      details: null,
+      company: null,
+      location: null,
+      benefits: null,
+      url: location.href
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

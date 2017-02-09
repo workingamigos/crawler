@@ -45,10 +45,26 @@ function next (item, cbFn) {
   .evaluate(query)
   .end()
   .run(analyze)
-  function query () { return document.body.innerText.toLowerCase() }
-  function analyze (error, result) {
-    if (error) return done(error)
-    meta({ item, raw: result }, cbFn)
+  function query () {
+    return {
+      date: null,
+      skills: null,
+      requirements: null,
+      title: null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: ((document.body||{}).innerText||'').toLowerCase()||'',
+      details: null,
+      company: null,
+      location: null,
+      benefits: null
+    }
+  }
+  function analyze (error, item) {
+    if (error) return cbFn(error)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

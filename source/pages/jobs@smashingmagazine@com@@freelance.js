@@ -40,17 +40,30 @@ function execute (opts, done) {
 function next (item, cbFn) {
   nightmare()
   .goto(item.url)
-  .wait('.job-entry')
   .evaluate(query)
   .end()
   .run(analyze)
-  
+
   function query (){
-    return document.querySelector('.job-entry').innerText
+    return {
+      date: (document.querySelector('.job-entry .date')||{}).innerText||'',
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.job-entry h2')||{}).innerText||'',
+      type: (document.querySelector('.job-entry .tags')||{}).innerText||'',
+      payment: null,
+      duration: null,
+      budget: null,
+      description: [...document.querySelectorAll('.job-entry p')].map(x => x.innerText||'').join('\n'),
+      details: null,
+      company: ((document.querySelector('.job-entry .author')||{}).innerText||'').split('(')[0]||null,
+      location: null,
+      benefits: null
+    }
   }
-  function analyze (error, result) {
-    if (error) return done(error)
-    meta({ item, raw: result }, cbFn)
+  function analyze (error, item) {
+    if (error) return cbFn(error)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

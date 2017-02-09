@@ -79,11 +79,12 @@ function next (url, cbFn) {
           }
           return null
         }),
-      description: (document.querySelector('.main .description')||{}).innerText||null,
+      description: (document.querySelector('.main .description')||{}).innerText||'',
       details: null,
       company: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[0]||null,
       location: ((document.querySelector('.main #job-company-name')||{}).innerText||'').split('•')[1]||null,
-      benefits: null
+      benefits: null,
+      url: location.href
     }
   }
   function analyze (error, item) {

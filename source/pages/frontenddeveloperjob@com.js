@@ -47,18 +47,31 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('main .inner')
   .evaluate(query)
   .end()
   .run(analyze)
 
   function query (){
-    return document.querySelector('main .inner').innerText
+    return {
+      date: ((document.querySelector('.minihead ')||{}).innerText||'').split("— ")[1]||null,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.inner #job_title ')||{}).innerText||'',
+      type: (document.querySelector('.inner #job_type ')||{}).innerText||'',
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('#job_body')||{}).innerText||'',
+      details: null,
+      company: (document.querySelector('.inner #job_employer_name ')||{}).innerText||'',
+      location: (document.querySelector('.inner #job_location ')||{}).innerText||'',
+      benefits: null
+    }
   }
 
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

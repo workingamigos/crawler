@@ -45,11 +45,26 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query () {
-    return (document.querySelector('.container .row div .outer')||{}).innerText
+    return {
+      date: (document.querySelector('.container .date')||{}).innerText||null,
+      skills: (document.querySelectorAll('.container .job-badge-wrapper .badge')[2]||{}).innerText||null,
+      requirements: (document.querySelectorAll('.container .job-badge-wrapper .badge')[3]||{}).innerText||null,
+      title: (document.querySelector('.job-header .job-position')||{}).innerText||null,
+      type: (document.querySelectorAll('.container .job-badge-wrapper .badge')[1]||{}).innerText||null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.container .inner')||{}).innerText||'',
+      details: null,
+      company: (document.querySelector('.job-header .job-company')||{}).innerText||null,
+      location: (document.querySelectorAll('.container .job-badge-wrapper .badge')[0]||{}).innerText||null,
+      benefits: null,
+      url: location.href
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

@@ -46,11 +46,25 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query () {
-    return (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText||''
+    return {
+      date: null,
+      skills: null,
+      requirements: null,
+      title: null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.thing .entry .expando .usertext .usertext-body .md')||{}).innerText||'',
+      details: null,
+      company: null,
+      location: null,
+      benefits: null
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text}, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

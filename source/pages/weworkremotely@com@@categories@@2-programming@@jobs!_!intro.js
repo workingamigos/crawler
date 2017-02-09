@@ -42,15 +42,26 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query () {
-    var p1 = (document.querySelector('.listing-header').innerText)||{}
-    var p2 = (document.querySelector('.job').innerText)||{}
-    var text = p1 + '\n' + p2
-    return text
+    return {
+      date: (document.querySelector('.listing-header h3')||{}).innerText||null,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.listing-header h1')||{}).innerText||null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.listing-container')||{}).innerText||'',
+      details: null,
+      company: (((document.querySelector('.listing-header h2')||{}).innerText||'').split('\n')[0])||null,
+      location: null,
+      benefits: null
+    }
   }
 
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

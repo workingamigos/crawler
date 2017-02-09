@@ -32,7 +32,8 @@ function execute (opts, done) {
     var total = result.length
     if (result.length) next(result.pop(), callback)
     function callback (error, data) {
-      if (error) return done(error)
+      if (typeof error === 'string') error = JSON.parse(error)
+      if (error && error.details != 'ERR_INTERNET_DISCONNECTED') return done(error)
       if (data) DATA.push(data)
       console.log(`${result.length}/${total} - ${URL}`)
       if (result.length) next(result.pop(), callback)
@@ -50,12 +51,26 @@ function next (data, cbFn) {
     .run(analyze)
 
   function query () {
-    return (document.querySelector('.expandContents .description')||{}).innerText || ''
+    return {
+      date: null,
+      skills: (document.querySelector('.tags')||{}).innerText||'',
+      requirements: null,
+      title: ((document.querySelector('.company_and_position')||{}).innerText||'').split('\n')[0]||null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.description p')||{}).innerText||'',
+      details: null,
+      company: ((document.querySelector('.company_and_position')||{}).innerText||'').split('\n')[1]||null,
+      location: null,
+      benefits: null
+    }
   }
 
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

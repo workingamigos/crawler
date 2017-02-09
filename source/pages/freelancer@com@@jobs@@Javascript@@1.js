@@ -13,7 +13,6 @@ function execute (opts, done) {
   opts = opts || { show: false }
   nightmare(opts)
   .goto(`http://${URL}`)
-  .wait('.ProjectTable-title')
   .evaluate(query)
   .end()
   .run(nextPage)
@@ -43,7 +42,8 @@ function execute (opts, done) {
     var total = urls.length
     if (urls.length) next(urls.pop(), callback)
     function callback (error, data) {
-      if (error) return done(error)
+      if (typeof error === 'string') error = JSON.parse(error)
+      if (error && (error.details != 'ERR_CONNECTION_RESET') && (error.details != 'ERR_INTERNET_DISCONNECTED') && (error.message != 'navigation error')) return done(error)
       if (data) DATA.push(data)
       console.log(`${urls.length}/${total} - ${URL}`)
       if (urls.length) next(urls.pop(), callback)
@@ -59,7 +59,6 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('.project-view-inner')
   .evaluate(query)
   .end()
   .run(analyze)
@@ -67,18 +66,19 @@ function next (url, cbFn) {
   function query () {
     return {
       date: null,
-      skills: (document.querySelector('.project-view-landing-required-skill')||{}).innerText,
+      skills: (document.querySelector('.project-view-landing-required-skill')||{}).innerText||null,
       requirements: null,
-      title: null,
+      title: (document.querySelector('.project-view-project-title')||{}).innerText||null,
       type: null, // job / freelance
       payment: null, // fixed / per hour
       duration: null,
-      budget: (document.querySelector('.project-statistic-value')||{}).innerText,
-      description: (document.querySelector('.project-description')||{}).innerText,
+      budget: (document.querySelector('.project-statistic-value')||{}).innerText||null,
+      description: (document.querySelector('.project-description')||{}).innerText||'',
       details: null,
       company: null,
       location: null,
-      benefits: null
+      benefits: null,
+      url: location.href
     }
   }
   function analyze (error, item) {
@@ -98,7 +98,7 @@ function query () {
   console.log("URLS " + urls)
   var array = document.querySelectorAll('.Pagination-item a')||[]
   var next
-  if (array[array.length - 2].getAttribute('class') != 'btn next paginate_button Pagination-link') {
+  if (array[array.length - 2].getAttribute('class') != 'btn next paginate_button Pagination-link disabled') {
     next = (document.querySelectorAll('.Pagination-item a')[array.length - 2]).href
   } else {
     next = {}.href

@@ -43,13 +43,25 @@ function next (url, cbFn) {
     .run(analyze)
 
   function query () {
-    var text = (document.querySelector('.job-description')||{}).innerText
-    return text
+    return {
+      date: (document.querySelector('.job-apply')||{}).innerText||null,
+      skills: ((document.querySelector('.parameters')||{}).innerText.split('\n')[1].split('Tags:')[1])||null,
+      requirements: null,
+      title: (document.querySelector('.container h3')||{}).innerText||null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.job-description')||{}).innerText||'',
+      details: null,
+      company: ((document.querySelector('.parameters')||{}).innerText.split('\n')[0])||null,
+      location: null,
+      benefits: null
+    }
   }
-  function analyze (error, text) {
-    console.log(text)
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

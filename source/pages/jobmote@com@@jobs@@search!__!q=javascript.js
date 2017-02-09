@@ -59,14 +59,26 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query (){
-    var p1 = document.querySelector('.job-title').innerText
-    var p2 = document.querySelector('.job-details').innerText
-    var text = p1 + '\n' + p2
-    return text
+    return {
+      date: null,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.container h1')||{}).innerText||'',
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.container .description')||{}).innerText||'',
+      details: null,
+      company: (document.querySelector('.container h4')||{}).innerText||'',
+      location: null,
+      benefits: null,
+      url: location.href
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

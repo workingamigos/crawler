@@ -15,13 +15,10 @@ function execute (opts, done) {
   if (typeof done !== 'function') return
   opts = opts || { show: false }
 
-  opts.show = true // @TODO: remove this - its only for debuggging
-
   nightmare(opts)
   .useragent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36")
   .goto(`http://${URL}`)
   .wait('.pagination li a')
-  .wait(500000)
   .evaluate(query)
   .end()
   .run(nextPage)
@@ -84,11 +81,12 @@ function next (url, cbFn) {
       payment: null, // fixed / per hour
       duration: null,
       budget: (document.querySelector('.location-salary .salary')||{}).innerText||null,
-      description: (document.querySelector('.job-description')||{}).innerText||null,
+      description: (document.querySelector('.job-description')||{}).innerText||'',
       details: null,
       company: (document.querySelector('.job-content .company')||{}).innerText||null,
       location: (document.querySelector('.location-salary .location')||{}).innerText||null,
-      benefits: null
+      benefits: null,
+      url: location.href
     }
   }
   function analyze (error, item) {

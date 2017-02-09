@@ -40,8 +40,8 @@ function execute (opts, done) {
 
 }
 
-function next (item, callback) {
-  meta({ item: {}, raw: item }, callback)
+function next (item, cbFn) {
+  meta({ item, raw: item.description }, cbFn)
 }
 
 function query () {
@@ -51,7 +51,21 @@ function query () {
     var post = x.innerText||''
     // if (post.includes('SEEKING FREELANCERS - REMOTE')) {
     if (post.includes('SEEKING FREELANCER')) {
-      list.push(post)
+      list.push({
+        date: null,
+        skills: null,
+        requirements: null,
+        title: "Seeking freelancer",
+        type: null,
+        payment: null,
+        duration: null,
+        budget: null,
+        description: post||'',
+        details: null,
+        company: null,
+        location: null,
+        benefits: null
+      })
     }
   })
   return list

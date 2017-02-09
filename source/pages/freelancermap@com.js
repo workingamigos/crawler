@@ -2,6 +2,7 @@
   http://www.freelancermap.com/it-projects/javascript-189
 
   @TODO:
+  ADD PAGINATION!!!
   http://www.freelancermap.com/index.php?module=projekt&func=suchergebnisse&pq=javascript&profisuche=0&pq_sorttype=1&area=newpb&redirect=1
   http://www.freelancermap.com/
   https://twitter.com/freelancer_INT
@@ -21,6 +22,7 @@ function execute (opts, done) {
   opts = opts || { show: false }
   nightmare(opts)
   .goto(`http://${URL}`)
+  .wait('.title a')
   .evaluate(query)
   .end()
   .run(nextPage)
@@ -35,7 +37,6 @@ function execute (opts, done) {
     var next = data.next
     if (next) return nightmare(opts)
       .goto(next)
-      .wait('.title a')
       .evaluate(query)
       .end()
       .run(nextPage)
@@ -61,7 +62,6 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
   .goto(url)
-  .wait('.projectcontent')
   .evaluate(query)
   .end()
   .run(analyze)
@@ -69,17 +69,17 @@ function next (url, cbFn) {
   function query () {
     return {
       date: null,
-      skills: (document.querySelector('#project .project-categories')||{}).innerText,
+      skills: (document.querySelector('#project .project-categories')||{}).innerText||'',
       requirements: null,
-      title: (document.querySelector('#project .headline-lightblue')||{}).innerText,
-      type: (document.querySelectorAll('#project .project-details .project-detail-description')[0]||{}).innerText,
+      title: (document.querySelector('#project .headline-lightblue')||{}).innerText||'',
+      type: (document.querySelectorAll('#project .project-details .project-detail-description')[0]||{}).innerText||'',
       payment: null, // fixed / per hour
-      duration: (document.querySelectorAll('#project .project-details .project-detail-description')[2]||{}).innerText,
+      duration: (document.querySelectorAll('#project .project-details .project-detail-description')[2]||{}).innerText||'',
       budget: null,
-      description: ((document.querySelector('.projectcontent')||{}).innerText||'').split(" Apply now")[1],
+      description: ((document.querySelector('.projectcontent')||{}).innerText||'').split(" Apply now")[1]||'',
       details: null,
       company: null,
-      location: (document.querySelectorAll('#project .project-details .project-detail-description')[4]||{}).innerText,
+      location: (document.querySelectorAll('#project .project-details .project-detail-description')[4]||{}).innerText||'',
       benefits: null
     }
   }

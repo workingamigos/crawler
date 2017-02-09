@@ -59,16 +59,26 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query (){
-    var supertitle = (document.querySelector('.inner .supertitle')||{}).innerText||''
-    var title = (document.querySelector('.inner h1')||{}).innerText||''
-    var body = (document.querySelector('.inner .main')||{}).innerText||''
-    var text = supertitle + '\n' + title + '\n' + body
-    return text
+    return {
+      date: null,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('#page h1')||{}).innerText||'',
+      type: ((document.querySelector('#page .supertitle')||{}).innerText||'').split(' /')[0]||null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('#page .column')||{}).innerText||'',
+      details: null,
+      company: null,
+      location: ((document.querySelector('#page .supertitle')||{}).innerText||'').split('/')[1]||null,
+      benefits: null
+    }
   }
 
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

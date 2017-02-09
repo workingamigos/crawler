@@ -47,7 +47,6 @@ function execute (opts, done) {
       else done(null, { NAME, DATA })
     }
   }
-
 }
 
 function next (url, cbFn) {
@@ -58,12 +57,26 @@ function next (url, cbFn) {
     .run(analyze)
 
   function query (){
-    var text = (document.querySelectorAll('.panel-body')[2]||{}).innerText||''
-    return text
+    return {
+      date: (((document.querySelector('.container .row')||{}).innerText||'').split('Posted')[1]||'').split('Description')[0]||null,
+      skills: null,
+      requirements: null,
+      title: (((document.querySelector('.page-header h1')||{}).innerText)||'').split('@')[0]||null,
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (((document.querySelector('.container .row')||{}).innerText||'').split('Description')[1]||'').split('Application Info')[0]||'',
+      details: null,
+      company: ((document.querySelector('.page-header h1')||{}).innerText||'').split('@')[1]||null,
+      location: null,
+      benefits: null
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    console.log(item.description)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

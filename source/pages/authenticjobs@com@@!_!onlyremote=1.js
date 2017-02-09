@@ -59,7 +59,8 @@ function execute (opts, done) {
         company: (document.querySelector('#the_company .headings h1')||{}).innerText||null,
         location: (document.querySelectorAll('.details li')[1]||{}).innerText||null,
         benefits: null,
-        application: (document.querySelector('#the_company #company_extras #company_links a')||{}).href||null
+        application: (document.querySelector('#the_company #company_extras #company_links a')||{}).href||null,
+        url: location.href
       }
     }
 

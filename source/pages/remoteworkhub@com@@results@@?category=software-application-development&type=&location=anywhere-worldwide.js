@@ -61,11 +61,29 @@ function next (url, cbFn) {
   .run(analyze)
 
   function query (){
-    return (document.querySelector('.main_column_job_details')||{}).innerText || ''
+    return {
+      date: ((((document.querySelector('.devided_section')||{}).innerText||'').split('POSTED:')[1]||'').split('LOCATION')[0])||null,
+      skills: [...document.querySelectorAll('.job-categories-list li')].map(x => {
+        var skills = []
+        skills.push(x.innerText)
+        return skills
+      }),
+      requirements: null,
+      title: ((document.querySelector('.main_title')||{}).innerText||'')||null,
+      type: ((document.querySelector('.job-type')||{}).innerText||'')||null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.job_summary')||{}).innerText||'',
+      details: null,
+      company: null,
+      location: null,
+      benefits: null
+    }
   }
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 

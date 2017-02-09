@@ -52,19 +52,20 @@ function query () {
     return ((tr.querySelector('.bounty-description')||{}).innerText||'').split(' ')[1] === 'posted'
   }).map(function (tr) {
     return {
-      date: tr.querySelector('.secondary-text span').innerText,
+      date: (tr.querySelector('.secondary-text span')||{}).innerText||null,
       skills: null,
       requirements: null,
       title: null,
       type: null, // job / freelance
       payment: null, // fixed / per hour
       duration: null,
-      budget: ((tr.querySelectorAll('.bounty-description')[0]||{}).innerText.split('bounty')[0]||'').split('a')[1],
-      description: ((tr.querySelectorAll('.bounty-description')[0]||{}).innerText||'').split('bounty')[1],
+      budget: (((tr.querySelectorAll('.bounty-description')[0]||{}).innerText||'').split('bounty')[0]||'').split('a')[1]||null,
+      description: ((tr.querySelectorAll('.bounty-description')[0]||{}).innerText||'').split('bounty')[1]||'',
       details: null,
-      company: ((tr.querySelector('.bounty-description')||{}).innerText||'').split(' ').shift(),
+      company: ((tr.querySelector('.bounty-description')||{}).innerText||'').split(' ').shift()||null,
       location: null,
-      benefits: null
+      benefits: null,
+      url: location.href
     }
   })
 }

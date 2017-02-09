@@ -17,7 +17,6 @@ function execute (opts, done) {
   opts = opts || { show: false }
   nightmare(opts)
   .goto(`http://${URL}`)
-  .wait('.position a')
   .evaluate(query)
   .end()
   .run(collect)
@@ -41,21 +40,31 @@ function execute (opts, done) {
 function next (url, cbFn) {
   nightmare()
     .goto(url)
-    .wait('.center h1')
     .evaluate(query)
     .end()
     .run(analyze)
 
   function query () {
-    var title = (document.querySelector('.center h1')||{}).innerText
-    var description = (document.querySelector('.single-text')||{}).innerText
-    var text = (title || '') + (description || '')
-    return text
+    return {
+      date: ((document.querySelector('.center .single-company')||{}).innerText||'').split(' · ')[1]||null,
+      skills: null,
+      requirements: null,
+      title: (document.querySelector('.center h1')||{}).innerText||'',
+      type: null,
+      payment: null,
+      duration: null,
+      budget: null,
+      description: (document.querySelector('.center .single-text')||{}).innerText||'',
+      details: null,
+      company: ((document.querySelector('.center .single-company')||{}).innerText||'').split(' · ')[0]||null,
+      location: null,
+      benefits: null
+    }
   }
 
-  function analyze (error, text) {
+  function analyze (error, item) {
     if (error) return cbFn(error)
-    meta({ item: {}, raw: text }, cbFn)
+    meta({ item, raw: item.description }, cbFn)
   }
 }
 
