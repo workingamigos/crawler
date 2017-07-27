@@ -20,3 +20,9 @@ document.querySelector('body.hello').innerText // hello
 document.querySelector('body > .hello').innerText // world
 [...document.querySelectorAll('.hello')].join(' - ') // hello - world
 ```
+
+### Others
+1. Spread Syntax [...]
+* https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_operator
+2. nodelist (document.querySelectorAll() would return a nodelist)  NOTE: nodelist is not an array!!
+* https://www.w3schools.com/js/js_htmldom_nodelist.asp
