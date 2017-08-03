@@ -1,6 +1,6 @@
 # Table of Content
 1. Examples
-  * Example 1
+    * Example 1
 2. Query Function Template
 3. Github Pull Request Workflow
 4. Learning Material
@@ -34,10 +34,10 @@ function query (job) {
   }
 }
 ```
-
 * **[Scraper Sourcecode example](https://github.com/workingamigos/crawler/blob/master/source/pages/authenticjobs%40com%40%40!_!onlyremote%3D1.js#L53)**
 * **[See example in Full Screen](http://i.imgur.com/HLMuuCY.png)**
 ![screenshot](http://i.imgur.com/HLMuuCY.png)
+
 
 # 2. Query Function Template
 ```js
