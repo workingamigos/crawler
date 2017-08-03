@@ -56,3 +56,20 @@ function query (job) {
 }
 ```
 
+# http://www.careerbuilder.com/jobs-javascript-remote?cbrecursioncnt=1
+```js
+
+var listings = document.querySelectorAll('.jobs>.job-row')
+var jobs = [...listings].map(query)
+function query(job){
+	return{
+
+		title: job.querySelector('h2.show-for-medium-up').innerText,
+		type: job.querySelector('.employment-info').innerText,
+		company: [...job.querySelectorAll('.job-text')][2].innerText,
+		description: job.querySelector('.job-description').innerHTML,
+		url: location.origin + job.querySelector('a').getAttribute('href')
+	
+	}
+}
+```
