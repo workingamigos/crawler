@@ -12,13 +12,16 @@
 
 **Example**
 ```html
-<body class="test"> <p> hello </p> <div class="test"> <p> world </p> </div> </body>
+<body class="test"> <p>hello</p> <div class="test"> <p>world</p> </div> </body>
 ```
 ```js
-document.querySelectorAll('.hello') // [body, div]
-document.querySelector('body.hello').innerText // hello
-document.querySelector('body > .hello').innerText // world
-[...document.querySelectorAll('.hello')].join(' - ') // hello - world
+document.querySelectorAll('.test') // [body.test, div.test]
+document.querySelector('body.test').innerText // "hello
+
+                                                  world"
+document.querySelector('body .test').innerText // "world"
+document.querySelector('body > .test').innerText // "world"
+[...document.querySelectorAll('.test')].map((x) =>{a =x.innerText;return a}) // ["hello↵↵world", "world"]
 ```
 
 ### Others
