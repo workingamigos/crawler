@@ -37,3 +37,22 @@ function query(job) {
 }
 ```
 
+
+# https://remoteok.io/remote-js-jobs
+```js
+
+let listing = document.querySelectorAll('#jobsboard tr.job')
+let jobs = [...listing].map(query)
+function query (job) {
+  let tags = job.querySelectorAll('#jobsboard td.tags .tag h3')
+  let tagArray = [...tags].map((tag)=>{return tag.innerText})
+  return {
+    title: job.querySelector('td.position h2').innerText,
+    company: job.querySelector('td.position h3').innerText,
+    tags: tagArray.toString(),
+    url: job.querySelector('.company_and_position > a').href,
+    time: job.querySelector('.time > a').innerText
+  }
+}
+```
+
