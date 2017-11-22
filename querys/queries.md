@@ -73,3 +73,28 @@ function query(job){
 	}
 }
 ```
+
+# https://www.bountysource.com/search?query=javascript
+```js
+
+var projects = document.querySelectorAll('div > table tr[ng-repeat]');
+var jobs = [...projects].map(function(job){
+	return {
+		title: job.querySelector("td a").innerText,
+		payment: job.querySelector("td span").innerText, 
+		url: job.querySelector("td span[ng-href]").baseURI + job.querySelector("td span[ng-href]").attributes.href.value,
+		description: null,
+		details: null,
+		company: null,
+		location: null,
+		benifits: null,
+		application: null,
+		publishDate: null,
+		skills: null,
+		requirements: null,
+		type: null,
+		duration: null,
+		budget: null
+	};
+})
+```
